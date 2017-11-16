@@ -1,25 +1,13 @@
+/* ============================================================ */
+/* ================= Fabián Muñoz Developer =================== */
+/* ============================================================ */
 
 body {
     padding: 0;
     margin: 0;
-    /*background-color: #2B2B2B;*/
-    /*font-family: "Raleway",Arial,sans-serif;*/
-    /*font-family: "Source Sans Pro",sans-serif;*/
     background: #2c2d28 none repeat scroll 0 0;
     font-family: 'Quicksand', sans-serif;
 }
-
-/*body, input, textarea, select {
-	font-size: 12pt;
-	font-weight: 300;
-	line-height: 1.75em;
-}*/
-
-/*a { text-decoration:none; } 
-a:link { text-decoration:none; }
-a:visited { text-decoration:none; }
-a:active, a:focus { outline: none !important; }
-a:hover { text-decoration: none !important; }*/
 
 nav {
     /*red*/
@@ -56,14 +44,10 @@ nav div.nav-wrapper a i {
     margin-top: 15px;
     border-top: none;
 }
-/*.left-side .card .card-content p {
-    height: 50px;
-}*/
 
 .left-side .card .card-content span.badge {
     margin: 0 15px;
     height: 27px;
-    /*text-align: center !important;*/
 }
 
 .left-side .card .card-content span.badge p{
@@ -84,6 +68,8 @@ nav div.nav-wrapper a i {
     margin: 0;
 }
 
+.left-side .date-badge a { color: #ffab40 !important; }
+
 .left-side .date-badge span.badge.new { font-size: 100%; }
 
 /*BUTTON MORE CONTENT*/
@@ -95,7 +81,34 @@ nav div.nav-wrapper a i {
     margin-top: 20px !important;
 }
 
-/*RIGHT SIDE*/
+/* === RIGHT SIDE === */
+
+/*Tag Popular*/
+.tag-popular {
+    color: white;
+}
+
+.tag-popular h5 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tag-popular .chip { 
+    background-color: #393939 !important; 
+}
+
+.tag-popular .chip:hover { 
+    background-color: white !important; 
+    color: black !important;
+    transition: .5s;
+}
+
+.tag-popular .chip a { color: #ffab40; }
+
+.tag-popular .chip:hover a { 
+    color: #F16528 !important;
+    transition: .5s;
+}
 
 /*collapsible*/
 
@@ -118,6 +131,9 @@ nav div.nav-wrapper a i {
     border-top: 1px solid #2c2d28;
     border-bottom: none;
 }
+/*.right-side .collapse-container .coll-hea {
+    color: #ffab40;
+}*/
 
 .right-side .collapse-container .coll-hea:hover {
     background-color: #2c2d28 !important;
@@ -150,10 +166,6 @@ nav div.nav-wrapper a i {
 
 .right-side .collapse-container .collapsible-body li a {
     color: white;
-}
-
-.right-side .collapse-container .collapsible-body span {
-    /*padding-top: -5px;*/
 }
 
 .hoverable {    

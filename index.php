@@ -22,7 +22,7 @@
                 <div class="nav-wrapper container">
                     <a href="#" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
+                        <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="badges.html">Acerca de</a></li>
                         <li><a href="collapsible.html">Contacto</a></li>
                     </ul>
@@ -158,21 +158,54 @@
                 <!-- RIGHT SIDE -->
                 <div class="right-side col s12 l3">
                     <!-- Teal page content  -->
+                    
+                    
                     <div class="row">
                         <div class="col s12 ">
-                            <div class="card blue-grey darken-1">
+                            <div class="card grey darken-3">
                                 <div class="card-content white-text">
-                                    <span class="card-title">Card Title</span>
+                                    <span class="card-title">Lo más visto</span>
                                     <p>I am a very simple card. I am good at containing small bits of information.
                                     I am convenient because I require little markup to use effectively.</p>
                                 </div>
-                                <div class="card-action">
+                                <!-- <div class="card-action">
                                     <a href="#">This is a link</a>
                                     <a href="#">This is a link</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="row tag-popular">
+                        <div class="col s12 ">
+                            <!-- <div class="card grey darken-3"> -->
+                                <!-- <div class="card-content white-text"> -->
+                                    <h5 class="">Tags populares</h5>
+                                    <div class="chip"><a href="#">PHP</a></div>
+                                    <div class="chip"><a href="#">MySQL</a></div>
+                                    <div class="chip"><a href="#">Yii Framework</a></div>
+                                    <div class="chip"><a href="#">Oracle</a></div>
+                                    <div class="chip"><a href="#">.NET</a></div>
+                                    <div class="chip"><a href="#">Python</a></div>
+                                    <div class="chip"><a href="#">PHP</a></div>
+                                    <div class="chip"><a href="#">Android</a></div>
+                                    <div class="chip"><a href="#">MySQL</a></div>
+                                    <div class="chip"><a href="#">Yii Framework</a></div>
+                                    <div class="chip"><a href="#">Oracle</a></div>
+                                    <div class="chip"><a href="#">.NET</a></div>
+                                    <div class="chip"><a href="#">Python</a></div>
+                                    <div class="chip"><a href="#">PHP</a></div>
+                                    <div class="chip"><a href="#">Java</a></div>
+                                    
+                                <!-- </div> -->
+                                <!-- <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                    <a href="#">This is a link</a>
+                                </div> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    
                     <!-- Categories -->
                     <div class="collapse-container">
                         <ul class="collapsible" data-collapsible="expandable">
