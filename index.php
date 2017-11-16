@@ -5,7 +5,8 @@
         <title></title>
         <link rel="stylesheet" href="css/main.css">
         <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
@@ -31,101 +32,118 @@
             <!-- Page Layout here -->
             <div class="row">
                 <!-- LEFT SIDE -->
-                <div class="col s12 l9">
+                <div class="left-side col s12 l9">
                 <!-- Grey navigation panel -->
-                
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/angular.png">
+                                <a href="#"><img src="img/medium/angular.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/html5_orange.png">
+                                <a href="#"><img src="img/medium/html5_orange.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/php.png">
+                                <a href="#"><img src="img/medium/php.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/python.png">
+                                <a href="#"><img src="img/medium/python.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/mysql.png">
+                                <a href="#"><img src="img/medium/mysql.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Article 1     -->
                     <div class="col s12">
-                        <div class="card horizontal">
+                        <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <img src="img/medium/html_css.png">
+                                <a href="#"><img src="img/medium/html_css.png"></a>
                             </div>
-                            <div class="card-article card-stacked">
+                            <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
+                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <div class="row date-badge">
+                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
+                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                    </div>
+                                    <hr>
+                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
                                 </div>
                             </div>
                         </div>
