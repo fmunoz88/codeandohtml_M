@@ -25,6 +25,10 @@ nav {
     background-color: #F16528 !important;
 }
 
+nav div.nav-wrapper a i {
+    font-size: 185%;
+}
+
 .left-side .img-header {
     width: 160px !important;
 }
@@ -45,6 +49,7 @@ nav {
 
 .left-side .card hr {
     margin-top: 15px;
+    border-top: none;
 }
 /*.left-side .card .card-content p {
     height: 50px;
@@ -76,10 +81,23 @@ nav {
 
 .left-side .date-badge span.badge.new { font-size: 100%; }
 
+/*BUTTON MORE CONTENT*/
+.left-side .button-more {
+    text-align: center;
+}
+
+.left-side .button-more a {
+    margin-top: 20px !important;
+}
+
 .hoverable {     -webkit-box-shadow: 0 1px 1px 0 #a1acbd;
     box-shadow: 0 1px 2px 0 #a1acbd; }
 
 footer { background-color: #23241f !important; }
+
+.separatorTop {
+    margin-top: 95px;
+}
 
 /*Responsive*/
 /*Extra small devices (portrait phones, less than 576px)*/
@@ -117,6 +135,10 @@ footer { background-color: #23241f !important; }
     }
     
     section.grid { margin-top: 45px !important; }
+    
+    .left-side .card-article, .card-image {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 993px) {

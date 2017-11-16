@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title></title>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/footer.css" media="screen" title="no title">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <!--Import Google Icon Font-->
         <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -17,7 +19,7 @@
         <header>
             <nav>
                 <div class="nav-wrapper container">
-                    <a href="#" class="brand-logo">Codeando HTML</a>
+                    <a href="#" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>
@@ -45,7 +47,7 @@
                                     <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
@@ -61,7 +63,7 @@
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="#">Guía HTML 5</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -80,7 +82,7 @@
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="#">Curso PHP 7 y MySQL</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -99,7 +101,7 @@
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="#">Conexión Data Base con Python</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -118,7 +120,7 @@
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="#">Clases de MySQL</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -137,7 +139,7 @@
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="#">Curso HTML 5 y CSS3</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -148,7 +150,10 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <!-- BUTTON MORE -->
+                    <div class="button-more">
+                        <a class="waves-effect grey darken-3 btn">Mostrar Más</a>
+                    </div>
                 </div>
                 <!-- RIGHT SIDE -->
                 <div class="col s12 l3">
@@ -174,30 +179,17 @@
             </div>
             
         </section>
-        <footer class="page-footer">
-        <div class="container">
-        <div class="row">
-        <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-        </ul>
-        </div>
-        </div>
-        </div>
-        <div class="footer-copyright">
-        <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-        </div>
+        <footer>
+            <ul class="social">
+                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </footer>
+        <footer class="second">
+            <p> Desarrollado por Fabián Muñoz &copy;</p>
         </footer>
         
         <!--Import jQuery before materialize.js-->
