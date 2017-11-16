@@ -22,7 +22,12 @@ a:active, a:focus { outline: none !important; }
 a:hover { text-decoration: none !important; }*/
 
 nav {
+    /*red*/
     background-color: #F16528 !important;
+    /*orange*/
+    /*background-color: #ef5350 !important;*/
+    /*yellow*/
+    /*background-color: #ffa000 !important;*/
 }
 
 nav div.nav-wrapper a i {
@@ -90,8 +95,71 @@ nav div.nav-wrapper a i {
     margin-top: 20px !important;
 }
 
-.hoverable {     -webkit-box-shadow: 0 1px 1px 0 #a1acbd;
-    box-shadow: 0 1px 2px 0 #a1acbd; }
+/*RIGHT SIDE*/
+
+/*collapsible*/
+
+/*Color font collapsible*/
+.right-side .collapse-container ul {
+    border: none;
+    color: white;
+}
+/*Color collapsible*/
+.right-side .collapse-container ul li div {
+    background-color: #393939 !important;
+    border: 1px solid #2c2d28;
+}
+
+.right-side .title-collapsible div{
+    cursor: auto;
+}
+
+.right-side .collapse-container .collapsible-header {
+    border-top: 1px solid #2c2d28;
+    border-bottom: none;
+}
+
+.right-side .collapse-container .coll-hea:hover {
+    background-color: #2c2d28 !important;
+}
+
+/*badge header collapsible*/
+.right-side .collapse-container .badge {
+    background-color: #F16528;
+}
+
+.right-side .collapse-container ul li div {
+    border-top: none;
+}
+
+.right-side .collapse-container .collapsible-body {
+    padding: 1px 40px 20px; 
+}
+
+/*icon*/
+.right-side .collapse-container .collapsible-body i{
+    font-size: 80%;
+    width: 2rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.right-side .collapse-container .collapsible-body li {
+    margin-top: 10px;
+}
+
+.right-side .collapse-container .collapsible-body li a {
+    color: white;
+}
+
+.right-side .collapse-container .collapsible-body span {
+    /*padding-top: -5px;*/
+}
+
+.hoverable {    
+    -webkit-box-shadow: 0 1px 1px 0 #a1acbd;
+    box-shadow: 0 1px 2px 0 #a1acbd; 
+}
 
 footer { background-color: #23241f !important; }
 
