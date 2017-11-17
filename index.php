@@ -36,7 +36,6 @@
                 <!-- LEFT SIDE -->
                 <div class="left-side col s12 l9">
                 <!-- Grey navigation panel -->
-                    <!-- Article 1     -->
                     <div class="col s12">
                         <div class="card hoverable horizontal">
                             <div class="card-image img-header">
@@ -157,55 +156,40 @@
                 </div>
                 <!-- RIGHT SIDE -->
                 <div class="right-side col s12 l3">
-                    <!-- Teal page content  -->
-                    
-                    
-                    <div class="row">
+                    <!-- Most Viewer -->
+                    <div class="most-viewer row">
                         <div class="col s12 ">
-                            <div class="card grey darken-3">
-                                <div class="card-content white-text">
-                                    <span class="card-title">Lo más visto</span>
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <!-- <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                    <a href="#">This is a link</a>
-                                </div> -->
+                            <h5 class="">Lo más visto</h5>
+                            <div class="collection">
+                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Curso Framework Yii 2 con Bootstrap</a>
+                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Sentencias MySQL</a>
+                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Subir Archivos con Python</a>
+                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Angular + React JS</a>
+                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>PHP POD</a>
                             </div>
                         </div>
                     </div>
-                    
+                    <!-- Tag Popular -->
                     <div class="row tag-popular">
                         <div class="col s12 ">
-                            <!-- <div class="card grey darken-3"> -->
-                                <!-- <div class="card-content white-text"> -->
-                                    <h5 class="">Tags populares</h5>
-                                    <div class="chip"><a href="#">PHP</a></div>
-                                    <div class="chip"><a href="#">MySQL</a></div>
-                                    <div class="chip"><a href="#">Yii Framework</a></div>
-                                    <div class="chip"><a href="#">Oracle</a></div>
-                                    <div class="chip"><a href="#">.NET</a></div>
-                                    <div class="chip"><a href="#">Python</a></div>
-                                    <div class="chip"><a href="#">PHP</a></div>
-                                    <div class="chip"><a href="#">Android</a></div>
-                                    <div class="chip"><a href="#">MySQL</a></div>
-                                    <div class="chip"><a href="#">Yii Framework</a></div>
-                                    <div class="chip"><a href="#">Oracle</a></div>
-                                    <div class="chip"><a href="#">.NET</a></div>
-                                    <div class="chip"><a href="#">Python</a></div>
-                                    <div class="chip"><a href="#">PHP</a></div>
-                                    <div class="chip"><a href="#">Java</a></div>
-                                    
-                                <!-- </div> -->
-                                <!-- <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                    <a href="#">This is a link</a>
-                                </div> -->
-                            <!-- </div> -->
+                            <h5 class="">Tags populares</h5>
+                            <div class="chip"><a href="#">PHP</a></div>
+                            <div class="chip"><a href="#">MySQL</a></div>
+                            <div class="chip"><a href="#">Yii Framework</a></div>
+                            <div class="chip"><a href="#">Oracle</a></div>
+                            <div class="chip"><a href="#">.NET</a></div>
+                            <div class="chip"><a href="#">Python</a></div>
+                            <div class="chip"><a href="#">PHP</a></div>
+                            <div class="chip"><a href="#">Android</a></div>
+                            <div class="chip"><a href="#">MySQL</a></div>
+                            <div class="chip"><a href="#">Yii Framework</a></div>
+                            <div class="chip"><a href="#">Oracle</a></div>
+                            <div class="chip"><a href="#">.NET</a></div>
+                            <div class="chip"><a href="#">Python</a></div>
+                            <div class="chip"><a href="#">PHP</a></div>
+                            <div class="chip"><a href="#">Java</a></div>
                         </div>
                     </div>
-                    
                     <!-- Categories -->
                     <div class="collapse-container">
                         <ul class="collapsible" data-collapsible="expandable">
@@ -225,9 +209,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>Yii Framework</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -235,9 +219,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>MySQL</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -245,9 +229,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>Python</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -255,9 +239,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>Oracle</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -265,9 +249,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>Angular 4</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -275,9 +259,9 @@
                                 <div class="collapsible-header coll-hea"><i class="material-icons">chevron_right</i>CSS</div>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>FOREACH</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>WHILE</span></li>
-                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span>IF / WHILE</span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">FOREACH</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">WHILE</a></span></li>
+                                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><span><a href="#">IF / WHILE</a></span></li>
                                     </ul>
                                 </div>
                             </li>
@@ -286,6 +270,7 @@
                 </div>
             </div>
         </section>
+        <!-- Footer -->
         <footer>
             <ul class="social">
                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
