@@ -161,11 +161,15 @@
                         <div class="col s12 ">
                             <h5 class="">Lo más visto</h5>
                             <div class="collection">
-                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Curso Framework Yii 2 con Bootstrap</a>
-                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Sentencias MySQL</a>
-                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Subir Archivos con Python</a>
-                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>Angular + React JS</a>
-                                <a href="#!" class="truncate collection-item"><i class="fa fa-code" aria-hidden="true"></i>PHP POD</a>
+                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
+                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
+                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
+                                <!-- <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><i class="fa fa-code" aria-hidden="true"></i>Sentencias MySQL</a>
+                                <a href="#!" class="truncate collection-item" title="Subir Archivos con Python"><i class="fa fa-code" aria-hidden="true"></i>Subir Archivos con Python</a>
+                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><i class="fa fa-code" aria-hidden="true"></i>Angular + React JS</a>
+                                <a href="#!" class="truncate collection-item" title="PHP POD"><i class="fa fa-code" aria-hidden="true"></i>PHP POD</a> -->
                             </div>
                         </div>
                     </div>

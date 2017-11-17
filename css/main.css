@@ -104,9 +104,21 @@ nav div.nav-wrapper a i {
     background-color: #393939 !important;
     color: #ffab40 !important;
     border: none;
+    padding: 0;
 }
 
 .most-viewer .collection a i { margin-right: 1rem; }
+
+.most-viewer .collection a img { 
+    width: 42px;
+    position: relative;
+    float: left;
+}
+
+.most-viewer .collection a span {
+    padding: 10px 20px !important;
+    position: relative;
+}
 
 .most-viewer .collection a:hover {
     background-color: white !important;
@@ -162,9 +174,6 @@ nav div.nav-wrapper a i {
     border-top: 1px solid #2c2d28;
     border-bottom: none;
 }
-/*.right-side .collapse-container .coll-hea {
-    color: #ffab40;
-}*/
 
 .right-side .collapse-container .coll-hea:hover {
     background-color: #2c2d28 !important;
