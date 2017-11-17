@@ -54,6 +54,12 @@ nav div.nav-wrapper a i {
     text-align: center !important;
 }
 
+/*Correción Truncate ellipsis*/
+.left-side .card-article .truncate {
+    max-width: 100%;
+    display: -moz-box;
+}
+
 .left-side .card-article, .card-image {
     background-color: #393939 !important;
     color: white;
