@@ -1,0 +1,40 @@
+
+$c_title: white;
+$c_subtitle: #ffab40;
+$c_paragraph: white;
+
+section.grid {
+    
+    .left-side {
+        
+        article {
+            
+            // border: 1px solid red;
+            padding: 10px 20px;
+            color: $c_paragraph;
+            text-align: justify;
+                
+            h3.title-article { 
+                color: $c_title; 
+                text-align: center;
+                font-size: 400%;
+                font-weight: bold;
+            }
+            
+            h4.subtitle-article {
+                color: $c_subtitle;
+                text-align: center;
+            }
+            
+            p {
+                font-size: 130%;
+            }
+            
+            pre {
+                font-size: .9em;
+            }
+                
+        }
+        
+    }
+} 

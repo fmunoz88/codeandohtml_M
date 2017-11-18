@@ -1,0 +1,18 @@
+section.grid .left-side article {
+  padding: 10px 20px;
+  color: white;
+  text-align: justify; }
+  section.grid .left-side article h3.title-article {
+    color: white;
+    text-align: center;
+    font-size: 400%;
+    font-weight: bold; }
+  section.grid .left-side article h4.subtitle-article {
+    color: #ffab40;
+    text-align: center; }
+  section.grid .left-side article p {
+    font-size: 130%; }
+  section.grid .left-side article pre {
+    font-size: .9em; }
+
+/*# sourceMappingURL=article.css.map */
