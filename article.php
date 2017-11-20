@@ -4,9 +4,6 @@
         <meta charset="utf-8">
         <title>Exportar en el gridview en Yii2</title>
         <link rel="stylesheet" href="css/main.css">
-        <!-- <link rel="stylesheet" href="css/right-side.css"> -->
-        <!-- <link rel="stylesheet" href="css/article.css"> -->
-        <link rel="stylesheet" href="css/footer.css" media="screen" title="no title">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
