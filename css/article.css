@@ -1,5 +1,5 @@
 section.grid .left-side article {
-  padding: 10px 20px;
+  padding: 10px 10px;
   color: white;
   text-align: justify; }
   section.grid .left-side article h3.title-article {
@@ -14,5 +14,49 @@ section.grid .left-side article {
     font-size: 130%; }
   section.grid .left-side article pre {
     font-size: .9em; }
+section.grid .left-side .tag-article {
+  padding: 10px 10px; }
+  section.grid .left-side .tag-article a {
+    color: #ffab40;
+    display: inline-block;
+    border: 1px solid #272822;
+    margin-right: 5px;
+    padding: 8px 10px;
+    margin-bottom: 10px; }
+section.grid .left-side .author-article {
+  text-align: right; }
+  section.grid .left-side .author-article .chip {
+    border-radius: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    background-color: #393939; }
+    section.grid .left-side .author-article .chip img {
+      height: 50px;
+      width: 50px;
+      margin: 0 -12px 0 8px;
+      float: right; }
+    section.grid .left-side .author-article .chip a {
+      color: #ffab40; }
+  section.grid .left-side .author-article .chip:hover {
+    background-color: white;
+    transition: .5s; }
+    section.grid .left-side .author-article .chip:hover a {
+      color: #F16528;
+      transition: .5s; }
+
+@media only screen and (max-width: 993px) {
+  section.grid .left-side article {
+    padding: 10px 0; }
+    section.grid .left-side article .author-article {
+      text-align: center; }
+  section.grid .left-side .tag-article {
+    padding: 10px 0; } }
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 85% !important; } }
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 95% !important; } }
 
 /*# sourceMappingURL=article.css.map */

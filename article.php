@@ -2,14 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Exportar en el gridview en Yii2</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/article.css">
         <link rel="stylesheet" href="css/footer.css" media="screen" title="no title">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        <!-- <link rel="stylesheet" href="css/ghpages-materialize.css"> -->
-        <!--Import Google Icon Font-->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
@@ -17,14 +14,13 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- prims Monokai -->
-        <link href="css/prism.css" rel="stylesheet" />
-        
+        <link href="css/prism_monokai.css" rel="stylesheet" />
     </head>
     <body>
         <header>
             <nav class="ambar">
                 <div class="nav-wrapper container">
-                    <a href="#" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
+                    <a href="index.php" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="badges.html">Acerca de</a></li>
@@ -38,19 +34,32 @@
             <!-- Page Layout here -->
             <div class="row">
                 <!-- LEFT SIDE -->
-                <div class="left-side col s12 l9">
+                <div class="left-side col s12  l9">
                     <article class="">
+                        <!-- Title Article -->
                         <h3 class="title-article">Exportar en el gridview en Yii2</h3>
+                        <!-- Sub-title article -->
                         <h4 class="subtitle-article">Utilizando Kartik plugins</h5>
-                        <div class="separator_1"></div>
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <div class="separator_0"></div>
+                        <!-- Author article -->
+                        <div class="author-article">
+                            <div class="chip ">
+                                <img class=""src="img/medium/fabian.png" alt="Contact Person">
+                                <a class="" href="#">Por Fabián Muñoz</a>
+                            </div>
+                        </div>
+                        <!-- Begin Article -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        
+                        <div class="separator_0"></div>
+                        
+                        <!-- windows bar  -->
                         <div class="top-bar">
                             <div class="circles">
                                 <div id="close-circle" class="circle"></div>
                                 <div id="minimize-circle" class="circle"></div>
                                 <div id="maximize-circle" class="circle"></div>
+                                <div class="lang-code right">PHP</div>
                             </div>
                         </div>
                         <pre class="line-numbers"><code class="language-php">&lt;?php require_once 'Zend/Uri/Http.php';
@@ -100,8 +109,6 @@
     __halt_compiler ();
 
 ?&gt;</code></pre>
-                    
-                    
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <div class="separator_0"></div>
                     <div class="top-bar">
@@ -109,6 +116,7 @@
                             <div id="close-circle" class="circle"></div>
                             <div id="minimize-circle" class="circle"></div>
                             <div id="maximize-circle" class="circle"></div>
+                            <div class="lang-code right">HTML</div>
                         </div>
                     </div>
                     <pre class="line-numbers"><code class="language-markup">&lt;!DOCTYPE html&gt;
@@ -121,14 +129,22 @@
         
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>   
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <!-- end code -->
                     </article>
-                    
-                    <div class="divider"></div>
-                    
+                    <!-- End article -->
+                    <!-- TAG ARTICLE -->
+                    <div class="tag-article">
+                        <a class="hover_1" href="#">Yii 2 Framework</a>
+                        <a class="hover_1" href="#">Bootstrap</a>
+                        <a class="hover_1" href="#">CSS 3</a>
+                        <a class="hover_1" href="#">HTML 5</a>
+                        <a class="hover_1" href="#">Kartik</a>
+                        <a class="hover_1" href="#">MySQL</a>
+                    </div>
                 </div>
                 <!-- RIGHT SIDE -->
-                <div class="right-side col s12 l3">
+                <div class="right-side col s12  l3">
                     <!-- Most Viewer -->
                     <div class="most-viewer row">
                         <div class="col s12 ">

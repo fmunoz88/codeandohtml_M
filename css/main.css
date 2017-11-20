@@ -269,6 +269,28 @@ footer { background-color: #23241f !important; }
     background-color: #fff;
     margin-right: 1px;
 }
+
+.top-bar .lang-code {
+    color: black;
+    font-weight: bold;
+}
+
+/*========= DEFAULT =========*/
+
+/*Hover: Background and text together*/
+.hover_1:hover {
+    color: #F16528 !important;
+    transition: .5s;
+    background-color: white;
+}
+
+.hover_2_t:hover { color: #F16528 !important; }
+.hover_2_b:hover {
+    transition: .5s !important;
+    background-color: white !important;
+}
+
+
 /*end osx tolbar*/
 
 /*Responsive*/
@@ -295,8 +317,7 @@ footer { background-color: #23241f !important; }
 }*/
 
 @media only screen and (max-width: 576px) {
-    
-    /*.container { width: 96% !important;}*/
+
     .brand-logo { 
         width: 90% !important;
         text-align: center;     
@@ -311,6 +332,12 @@ footer { background-color: #23241f !important; }
     .left-side .card-article, .card-image {
         display: none;
     }
+}
+
+@media only screen and (max-width: 767px) { 
+    
+    nav a{ font-size: 200% !important; }
+    
 }
 
 @media only screen and (max-width: 993px) {

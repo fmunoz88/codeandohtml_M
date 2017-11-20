@@ -39,11 +39,11 @@
                     <div class="col s12">
                         <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/angular.png"></a>
+                                <a href="article.php"><img src="img/medium/angular.png"></a>
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="article.php">Curso Yii 2 con Bootstrap</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -58,14 +58,14 @@
                     <div class="col s12">
                         <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/html5_orange.png"></a>
+                                <a href="article.php"><img src="img/medium/html5_orange.png"></a>
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="#">Guía HTML 5</a></h4>
+                                    <h4><a href="article.php">Guía HTML 5</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
@@ -84,7 +84,7 @@
                                     <h4><a href="#">Curso PHP 7 y MySQL</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
@@ -103,7 +103,7 @@
                                     <h4><a href="#">Conexión Data Base con Python</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
@@ -122,7 +122,7 @@
                                     <h4><a href="#">Clases de MySQL</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
@@ -141,7 +141,7 @@
                                     <h4><a href="#">Curso HTML 5 y CSS3</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s9"><a href="#">Fabián Muñoz Dev</a></span>
+                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
                                     </div>
                                     <hr>
                                     <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>

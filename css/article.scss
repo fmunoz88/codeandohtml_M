@@ -1,6 +1,11 @@
 
+$c_ambar: #ffab40;
+$c_black_l: #393939;
+$c_black_d: #272822;
+$c_orange: #F16528;
+
 $c_title: white;
-$c_subtitle: #ffab40;
+$c_subtitle: $c_ambar;
 $c_paragraph: white;
 
 section.grid {
@@ -10,7 +15,7 @@ section.grid {
         article {
             
             // border: 1px solid red;
-            padding: 10px 20px;
+            padding: 10px 10px;
             color: $c_paragraph;
             text-align: justify;
                 
@@ -36,5 +41,84 @@ section.grid {
                 
         }
         
+        .tag-article {
+            
+            padding: 10px 10px;
+            
+            a {
+                color: $c_ambar;
+                display: inline-block;
+                border: 1px solid $c_black_d;
+                margin-right: 5px;
+                padding: 8px 10px;
+                // border-radius: 3px;
+                margin-bottom: 10px;
+            }
+            
+        }
+        
+        .author-article {
+            // border: 1px solid red;
+            // right: 0;
+            text-align: right;
+            // padding: 20px 10px;
+            // width: 100%;
+            
+            
+            .chip {
+                // color: $c_ambar !important;
+                border-radius: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 15px;
+                // width: 100%;
+                // background: none;
+                background-color: $c_black_l;
+                
+                img {
+                    height: 50px;
+                    width: 50px;
+                    margin: 0 -12px 0 8px;
+                    float: right;
+                }
+                
+                a { color: $c_ambar; }
+            }
+            
+            .chip:hover {
+                background-color: white;
+                transition: .5s;
+                
+                a {
+                    color: $c_orange;
+                    transition: .5s;
+                }
+            }
+            
+        }
+        
     }
 } 
+
+@media only screen and (max-width: 993px) {
+    
+    section.grid {
+        .left-side{
+            article {
+                padding: 10px 0;
+                
+                .author-article { text-align: center; }
+            }
+            
+            .tag-article { padding: 10px 0; }
+        }
+    } 
+    
+}
+
+@media only screen and (max-width: 1200px) {
+    .container { width: 85% !important;}
+}
+@media only screen and (max-width: 767px) {
+    .container { width: 95% !important;}
+}
