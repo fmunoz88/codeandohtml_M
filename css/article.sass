@@ -1,0 +1,100 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+
+@import _colors
+
+$c_title: white
+$c_subtitle: $c_ambar
+$c_paragraph: white
+
+section.grid 
+    
+    .left-side 
+        
+        article
+            padding: 10px 10px
+            color: $c_paragraph
+            text-align: justify
+                
+            h3.title-article 
+                color: $c_title 
+                text-align: center
+                font-size: 400%
+                font-weight: bold
+            
+            
+            h4.subtitle-article 
+                
+                color: $c_subtitle
+                text-align: center
+                
+            p 
+                font-size: 130%
+            
+            
+            pre 
+                font-size: .9em
+        
+        .tag-article 
+            padding: 10px 10px
+            
+            a    
+                color: $c_ambar
+                display: inline-block
+                border: 1px solid $c_black_d
+                margin-right: 5px
+                padding: 8px 10px
+                margin-bottom: 10px
+            
+        .author-article 
+            text-align: right
+            
+            .chip
+                border-radius: 50px
+                height: 50px
+                line-height: 50px
+                font-size: 15px
+                background-color: $c_black_l
+                
+                img
+                    height: 50px
+                    width: 50px
+                    margin: 0 -12px 0 8px
+                    float: right
+                
+                
+                a  
+                    color: $c_ambar 
+            
+            
+            .chip:hover 
+                background-color: white
+                transition: .5s
+                
+                a 
+                    color: $c_orange
+                    transition: .5s
+                
+
+@media only screen and (max-width: 993px) 
+    
+    section.grid 
+        .left-side
+            article 
+                padding: 10px 0
+                
+                .author-article  
+                    text-align: center 
+            
+            
+            .tag-article  
+                padding: 10px 0 
+
+@media only screen and (max-width: 1200px) 
+    .container  
+        width: 85% !important
+
+@media only screen and (max-width: 767px) 
+    .container  
+        width: 95% !important

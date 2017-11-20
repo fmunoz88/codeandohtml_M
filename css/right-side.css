@@ -1,0 +1,81 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+.right-side .most-viewer {
+  margin-bottom: 0 !important;
+  color: white; }
+  .right-side .most-viewer h5 {
+    margin-left: 1rem;
+    margin-bottom: 1rem; }
+  .right-side .most-viewer .collection {
+    border: none; }
+    .right-side .most-viewer .collection a {
+      margin-bottom: 10px;
+      background-color: #393939 !important;
+      color: #ffab40 !important;
+      border: none;
+      padding: 0; }
+      .right-side .most-viewer .collection a i {
+        margin-right: 1rem; }
+      .right-side .most-viewer .collection a img {
+        width: 42px;
+        position: relative;
+        float: left; }
+      .right-side .most-viewer .collection a span {
+        padding: 10px 20px !important;
+        position: relative; }
+    .right-side .most-viewer .collection a:hover {
+      background-color: white !important;
+      color: #F16528 !important;
+      transition: 0.5s; }
+.right-side .tag-popular {
+  color: white; }
+  .right-side .tag-popular h5 {
+    margin-left: 1rem;
+    margin-bottom: 1rem; }
+  .right-side .tag-popular .chip {
+    background-color: #393939 !important; }
+    .right-side .tag-popular .chip a {
+      color: #ffab40; }
+    .right-side .tag-popular .chip a:hover {
+      color: #F16528 !important;
+      transition: 0.5s; }
+  .right-side .tag-popular .chip:hover {
+    background-color: white !important;
+    color: black !important;
+    transition: 0.5s; }
+.right-side .collapse-container ul {
+  border: none;
+  color: white; }
+  .right-side .collapse-container ul li div {
+    background-color: #393939 !important;
+    border: 1px solid #272822;
+    border-top: none; }
+  .right-side .collapse-container ul .title-collapsible {
+    cursor: auto; }
+  .right-side .collapse-container ul .collapsible-header {
+    border-top: 1px solid #272822;
+    border-bottom: none; }
+  .right-side .collapse-container ul .coll-hea:hover {
+    background-color: #272822 !important;
+    transition: 0.5s; }
+  .right-side .collapse-container ul .collapsible-body {
+    padding: 1px 40px 20px; }
+    .right-side .collapse-container ul .collapsible-body i {
+      font-size: 80%;
+      width: 2rem;
+      text-align: center;
+      margin-right: 1rem; }
+    .right-side .collapse-container ul .collapsible-body li {
+      margin-top: 10px; }
+      .right-side .collapse-container ul .collapsible-body li a {
+        color: white; }
+      .right-side .collapse-container ul .collapsible-body li a:hover {
+        text-decoration: underline; }
+.right-side .collapse-container .badge {
+  background-color: #F16528; }
+
+/*# sourceMappingURL=right-side.css.map */

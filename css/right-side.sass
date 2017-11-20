@@ -1,0 +1,112 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+
+@import _colors
+
+.right-side
+    
+    // Lo más visto
+    .most-viewer
+        margin-bottom: 0 !important
+        color: white
+        
+        h5    
+            margin-left: 1rem
+            margin-bottom: 1rem
+            
+        .collection
+            border: none
+            
+            a
+                margin-bottom: 10px
+                background-color: $c_black_l !important
+                color: $c_ambar !important
+                border: none
+                padding: 0
+                
+                i
+                    margin-right: 1rem
+                    
+                img
+                    width: 42px
+                    position: relative
+                    float: left
+                    
+                span
+                    padding: 10px 20px !important
+                    position: relative
+                    
+            a:hover
+                background-color: white !important
+                color: $c_orange !important
+                transition: .5s
+                
+    .tag-popular 
+        color: white
+        
+        h5
+            margin-left: 1rem
+            margin-bottom: 1rem
+            
+        .chip
+            
+            background-color: $c_black_l !important
+            
+            a
+                color: $c_ambar
+                
+            a:hover 
+                color: $c_orange !important
+                transition: .5s
+            
+        .chip:hover
+        
+            background-color: white !important
+            color: black !important
+            transition: .5s
+            
+    // Categories
+    .collapse-container
+    
+        ul
+            border: none
+            color: white
+    
+            li div 
+                background-color: $c_black_l !important
+                border: 1px solid $c_black_d
+                border-top: none
+    
+            .title-collapsible
+                cursor: auto
+                
+            .collapsible-header
+                border-top: 1px solid $c_black_d
+                border-bottom: none
+                
+            .coll-hea:hover
+                background-color: $c_black_d !important
+                transition: .5s
+                
+            .collapsible-body
+                padding: 1px 40px 20px
+                
+                // Icons
+                i
+                    font-size: 80%
+                    width: 2rem
+                    text-align: center
+                    margin-right: 1rem
+                    
+                li
+                    margin-top: 10px
+                    
+                    a
+                        color: white
+                    
+                    a:hover
+                        text-decoration: underline
+                
+        .badge
+            background-color: $c_orange

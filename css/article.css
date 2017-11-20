@@ -1,3 +1,9 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
 section.grid .left-side article {
   padding: 10px 10px;
   color: white;
@@ -13,7 +19,7 @@ section.grid .left-side article {
   section.grid .left-side article p {
     font-size: 130%; }
   section.grid .left-side article pre {
-    font-size: .9em; }
+    font-size: 0.9em; }
 section.grid .left-side .tag-article {
   padding: 10px 10px; }
   section.grid .left-side .tag-article a {
@@ -40,10 +46,10 @@ section.grid .left-side .author-article {
       color: #ffab40; }
   section.grid .left-side .author-article .chip:hover {
     background-color: white;
-    transition: .5s; }
+    transition: 0.5s; }
     section.grid .left-side .author-article .chip:hover a {
       color: #F16528;
-      transition: .5s; }
+      transition: 0.5s; }
 
 @media only screen and (max-width: 993px) {
   section.grid .left-side article {
