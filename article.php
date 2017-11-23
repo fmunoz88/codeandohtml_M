@@ -1,16 +1,22 @@
+<?php 
+    include_once 'libs/Parsedown.php';
+    include 'config/conexion.php';
+    $db = db_connect();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Exportar en el gridview en Yii2</title>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- prims Monokai -->
         <link href="css/prism_monokai.css" rel="stylesheet" />
     </head>
@@ -23,6 +29,7 @@
                         <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="badges.html">Acerca de</a></li>
                         <li><a href="collapsible.html">Contacto</a></li>
+                        <li><a href="src/add-article.php">Nuevo Artículo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -34,100 +41,29 @@
                 <!-- LEFT SIDE -->
                 <div class="left-side col s12  l9">
                     <article class="">
-                        <!-- Title Article -->
-                        <h3 class="title-article">Exportar en el gridview en Yii2</h3>
-                        <!-- Sub-title article -->
-                        <h4 class="subtitle-article">Utilizando Kartik plugins</h5>
-                        <div class="separator_0"></div>
-                        <!-- Author article -->
-                        <div class="author-article">
-                            <div class="chip ">
-                                <img class=""src="img/medium/fabian.png" alt="Contact Person">
-                                <a class="" href="#">Por Fabián Muñoz</a>
-                            </div>
-                        </div>
-                        <!-- Begin Article -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         
-                        <div class="separator_0"></div>
-                        
-                        <!-- windows bar  -->
-                        <div class="top-bar">
-                            <div class="circles">
-                                <div id="close-circle" class="circle"></div>
-                                <div id="minimize-circle" class="circle"></div>
-                                <div id="maximize-circle" class="circle"></div>
-                                <div class="lang-code right">PHP</div>
-                            </div>
-                        </div>
-                        <pre class="line-numbers"><code class="language-php">&lt;?php require_once 'Zend/Uri/Http.php';
-
-    namespace Location\Web;
-
-    interface Factory {
-        static function _factory();
-    }
-
-    abstract class URI extends BaseURI implements Factory {
-        abstract function test();
-
-        public static $st1 = 1;
-        const ME = "Yo";
-        var $list = NULL;
-        private $var;
-
-        /**
-         * Returns a URI
-         *
-         * @return URI
-         */
-        static public function _factory($stats = array(), $uri = 'http') {
-            echo __METHOD__;
-            $uri = explode(':', $uri, 0b10);
-            $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
-            $desc = 'Multi line description';
-
-            // Security check
-            if (!ctype_alnum($scheme)) {
-                throw new Zend_Uri_Exception('Illegal scheme');
-            }
-
-            $this->var = 0 - self::$st;
-            $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
-
-            return [
-                'uri'   => $uri,
-                'value' => null,
-            ];
-        }
-    }
-
-    echo URI::ME . URI::$st1;
-
-    __halt_compiler ();
-
-?&gt;</code></pre>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div class="separator_0"></div>
-                    <div class="top-bar">
-                        <div class="circles">
-                            <div id="close-circle" class="circle"></div>
-                            <div id="minimize-circle" class="circle"></div>
-                            <div id="maximize-circle" class="circle"></div>
-                            <div class="lang-code right">HTML</div>
-                        </div>
-                    </div>
-                    <pre class="line-numbers"><code class="language-markup">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset="utf-8"&gt;
-        &lt;title&gt;&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>   
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <?php 
+                            
+                            $parsedown = new Parsedown();
+                            
+                            $record = $db->query("SELECT * FROM Articulos WHERE id = ".$_GET['id']." LIMIT 1");
+                            
+                            foreach ($record as $v) {
+                                // echo "<pre>"; var_dump("->",$v);
+                                echo ('<h3 class="title-article">'.$v['titulo'].'</h3>');
+                                echo ('<h4 class="subtitle-article">'.$v['subTitulo'].'</h4>');
+                                echo ('<div class="separator_0"></div>');
+                                echo ('<div class="author-article">');
+                                    echo ('<div class="chip ">');
+                                    echo ('<img class=""src="img/medium/fabian.png" alt="Contact Person">');
+                                        echo ('<a class="" href="#">Por Fabián Muñoz</a>');
+                                    echo ('</div>');
+                                echo ('</div>');
+                                
+                                echo $parsedown->text($v['articulo']);
+                            }
+                            
+                        ?>
                     <!-- end code -->
                     </article>
                     <!-- End article -->
@@ -268,12 +204,13 @@
             </ul>
         </footer>
         <footer class="second">
-            <p> Desarrollado por Fabián Muñoz &copy;</p>
+            <p> Desarrollado por Fabián Muñoz &copy; <?php echo date('Y'); ?></p>
         </footer>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <!-- prims -->
         <script src="js/prism_monokai.js"></script>
+        
     </body>
 </html>

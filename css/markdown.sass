@@ -1,0 +1,61 @@
+@import _colors
+
+.add-article
+    
+    .container .row
+        margin-left: inherit
+        margin-right: inherit
+    
+    .form-wrapper
+        background-color: $c_black_l
+        color: white
+        
+        button
+            margin-right: 20px
+            
+        
+    
+    #test-editormd
+        z-index: 1
+        width: 100% !important
+    
+        li.divider
+            overflow: inherit
+            
+        input,select
+            display: inline
+            color: #999
+            padding: 3px 8px
+            border: 1px solid #ddd
+            width: auto
+            height: inherit
+            
+        .editormd-dialog
+            min-width: 400px !important   
+            
+        .editormd-fullscreen
+            z-index: 9
+            
+        .editormd-form input[type="text"]
+            display: inline-block
+            width: 264px !important
+
+        .editormd-form input[type="text"], .editormd-form input[type="number"] 
+            color: #999
+            padding: 8px
+            border: 1px solid #ddd
+
+        .editormd-form label 
+            float: left
+            display: block
+            width: 75px
+            text-align: left
+            padding: 7px 0 15px 5px
+            margin: 0 0 2px
+            font-weight: normal
+            
+        input:not([type]), input[type=text]:not(.browser-default), input[type=number]:not(.browser-default)
+            width: auto
+            height: auto
+            margin: inherit
+

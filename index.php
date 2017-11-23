@@ -22,6 +22,7 @@
                         <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="badges.html">Acerca de</a></li>
                         <li><a href="collapsible.html">Contacto</a></li>
+                        <li><a href="src/add-article.php">Nuevo Artículo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -36,11 +37,11 @@
                     <div class="col s12">
                         <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <a href="article.php"><img src="img/medium/angular.png"></a>
+                                <a href="src/article.php"><img src="img/medium/angular.png"></a>
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="article.php">Curso Yii 2 con Bootstrap</a></h4>
+                                    <h4><a href="article.php?id=1">Curso Yii 2 con Bootstrap</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
@@ -55,11 +56,11 @@
                     <div class="col s12">
                         <div class="card hoverable horizontal">
                             <div class="card-image img-header">
-                                <a href="article.php"><img src="img/medium/html5_orange.png"></a>
+                                <a href="src/article.php"><img src="img/medium/html5_orange.png"></a>
                             </div>
                             <div class="card-article card-stacked col s9">
                                 <div class="card-content">
-                                    <h4><a href="article.php">Guía HTML 5</a></h4>
+                                    <h4><a href="src/article.php">Guía HTML 5</a></h4>
                                     <div class="row date-badge">
                                         <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
                                         <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>

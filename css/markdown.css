@@ -1,0 +1,48 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+.add-article .container .row {
+  margin-left: inherit;
+  margin-right: inherit; }
+.add-article .form-wrapper {
+  background-color: #393939;
+  color: white; }
+  .add-article .form-wrapper button {
+    margin-right: 20px; }
+.add-article #test-editormd {
+  z-index: 1;
+  width: 100% !important; }
+  .add-article #test-editormd li.divider {
+    overflow: inherit; }
+  .add-article #test-editormd input, .add-article #test-editormd select {
+    display: inline;
+    color: #999;
+    padding: 3px 8px;
+    border: 1px solid #ddd;
+    width: auto;
+    height: inherit; }
+  .add-article #test-editormd .editormd-dialog {
+    min-width: 400px !important; }
+  .add-article #test-editormd .editormd-fullscreen {
+    z-index: 9; }
+  .add-article #test-editormd .editormd-form input[type="text"] {
+    display: inline-block;
+    width: 264px !important; }
+  .add-article #test-editormd .editormd-form input[type="text"], .add-article #test-editormd .editormd-form input[type="number"] {
+    color: #999;
+    padding: 8px;
+    border: 1px solid #ddd; }
+  .add-article #test-editormd .editormd-form label {
+    float: left;
+    display: block;
+    width: 75px;
+    text-align: left;
+    padding: 7px 0 15px 5px;
+    margin: 0 0 2px;
+    font-weight: normal; }
+  .add-article #test-editormd input:not([type]), .add-article #test-editormd input[type=text]:not(.browser-default), .add-article #test-editormd input[type=number]:not(.browser-default) {
+    width: auto;
+    height: auto;
+    margin: inherit; }
+
+/*# sourceMappingURL=markdown.css.map */

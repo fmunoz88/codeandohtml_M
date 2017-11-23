@@ -13,45 +13,39 @@
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
 /* ===================================================== */
-.left-side {
-  /*BUTTON MORE CONTENT */ }
-  .left-side .card {
-    box-shadow: none; }
-    .left-side .card .img-header {
-      width: 160px !important; }
-    .left-side .card .card-article .card-content {
-      padding: 0;
-      max-height: 300px; }
-      .left-side .card .card-article .card-content a {
-        color: white; }
-      .left-side .card .card-article .card-content a:hover {
-        color: #b2b2b; }
-      .left-side .card .card-article .card-content h4 {
-        font-weight: bold;
-        font-size: 250%; }
-      .left-side .card .card-article .card-content .date-badge a {
-        color: #ffab40 !important; }
-      .left-side .card .card-article .card-content .date-badge .badge {
-        margin: 0 15px;
-        height: 27px;
-        font-size: 100%; }
-        .left-side .card .card-article .card-content .date-badge .badge p {
-          text-align: center !important; }
-    .left-side .card .card-article .truncate {
-      max-width: 100%;
-      display: -moz-box; }
-    .left-side .card .card-article, .left-side .card .card-image {
-      background-color: #393939 !important;
+.left-side .card {
+  box-shadow: none; }
+  .left-side .card .img-header {
+    width: 160px !important; }
+  .left-side .card .card-article .card-content {
+    padding: 0;
+    max-height: 300px; }
+    .left-side .card .card-article .card-content a {
       color: white; }
-    .left-side .card .row {
-      margin-bottom: 0; }
-    .left-side .card hr {
-      margin-top: 15px;
-      border-top: none; }
-  .left-side .button-more {
-    text-align: center; }
-  .left-side .button-more a {
-    margin-top: 20px !important; }
+    .left-side .card .card-article .card-content a:hover {
+      color: #b2b2b; }
+    .left-side .card .card-article .card-content h4 {
+      font-weight: bold;
+      font-size: 250%; }
+    .left-side .card .card-article .card-content .date-badge a {
+      color: #ffab40 !important; }
+    .left-side .card .card-article .card-content .date-badge .badge {
+      margin: 0 15px;
+      height: 27px;
+      font-size: 100%; }
+      .left-side .card .card-article .card-content .date-badge .badge p {
+        text-align: center !important; }
+  .left-side .card .card-article .truncate {
+    max-width: 100%;
+    display: -moz-box; }
+  .left-side .card .card-article, .left-side .card .card-image {
+    background-color: #393939 !important;
+    color: white; }
+  .left-side .card .row {
+    margin-bottom: 0; }
+  .left-side .card hr {
+    margin-top: 15px;
+    border-top: none; }
 
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
@@ -241,10 +235,12 @@ body {
   background: #2c2d28 none repeat scroll 0 0;
   font-family: "Quicksand", sans-serif;
   /*========= DEFAULT ========= */
+  /*BUTTON MORE CONTENT */
   /*Hover: Background and text together */
   /*osx tolbar */ }
   body nav {
-    background-color: #F16528 !important; }
+    background-color: #F16528 !important;
+    z-index: 10; }
     body nav div.nav-wrapper a i {
       font-size: 185%; }
   body .hoverable {
@@ -254,6 +250,13 @@ body {
     box-shadow: 0 1px 2px 0 #a1acbd; }
   body footer {
     background-color: #23241f !important; }
+  body .button-more {
+    text-align: center; }
+    body .button-more a {
+      margin-top: 20px !important; }
+    body .button-more button:hover {
+      background-color: #272822 !important;
+      transition: 0.5s; }
   body .hover_1:hover {
     color: #F16528 !important;
     transition: 0.5s;
