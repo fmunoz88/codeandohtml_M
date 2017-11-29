@@ -147,6 +147,8 @@ section.grid .left-side article {
     text-align: center; }
   section.grid .left-side article p {
     font-size: 130%; }
+    section.grid .left-side article p img {
+      max-width: 100%; }
   section.grid .left-side article pre {
     font-size: 0.9em; }
 section.grid .left-side .tag-article {
@@ -160,6 +162,8 @@ section.grid .left-side .tag-article {
     margin-bottom: 10px; }
 section.grid .left-side .author-article {
   text-align: right; }
+  section.grid .left-side .author-article span {
+    margin-right: 20px; }
   section.grid .left-side .author-article .chip {
     border-radius: 50px;
     height: 50px;
@@ -229,6 +233,25 @@ footer.second {
     margin: 1%;
     padding: 2% 2% 2% 1%;
     color: #FFF; } }
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+.material-dialog {
+  width: 40% !important; }
+  .material-dialog .modal-footer .btn.confirm {
+    background-color: #42a5f5 !important;
+    margin-left: 10px; }
+  .material-dialog .modal-footer .btn.confirm:hover {
+    transition: 0.5s;
+    background-color: #1e88e5 !important; }
+  .material-dialog .modal-footer .btn.close {
+    background-color: #bdbdbd !important;
+    margin-left: 10px; }
+  .material-dialog .modal-footer .btn.close:hover {
+    color: white;
+    background-color: #757575 !important;
+    transition: 0.5s; }
+
 body {
   padding: 0;
   margin: 0;

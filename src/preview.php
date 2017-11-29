@@ -3,7 +3,6 @@
     include '../config/conexion.php';
     $db = db_connect();
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,14 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- prims Monokai -->
         <link href="../css/prism_monokai.css" rel="stylesheet" />
-        
-        
         <style media="screen">
-            .preview-border {
-                border: 1px solid #393939;
-            }
-            
-            .preview-article .container {width: 80%; }
+            .preview-border { border: 1px solid #393939; }
+            .preview-article .container { width: 80%; }
         </style>
     </head>
     <body>
@@ -36,11 +30,20 @@
                             $record = $db->query("SELECT * FROM Articulos WHERE id = ".$_GET['id']." LIMIT 1");
                             
                             foreach ($record as $v) {
+                                
+                                //get date
+                                $date = new DateTime($v['fecha']);
+                                //format date
+                                setlocale(LC_TIME, "es_ES");
+                                
                                 // echo "<pre>"; var_dump("->",$v);
                                 echo ('<h3 class="title-article">'.$v['titulo'].'</h3>');
-                                echo ('<h4 class="subtitle-article">'.$v['subTitulo'].'</h4>');
+                                //Validad si viene el subtitle
+                                if(empty($v['subTitulo']))
+                                    echo ('<h4 class="subtitle-article">'.$v['subTitulo'].'</h4>');
                                 echo ('<div class="separator_0"></div>');
                                 echo ('<div class="author-article">');
+                                    echo ('<span><i>posteado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
                                     echo ('<div class="chip ">');
                                     echo ('<img class=""src="../img/medium/fabian.png" alt="Contact Person">');
                                         echo ('<a class="" href="#">Por Fabián Muñoz</a>');
@@ -64,9 +67,7 @@
                 </div>
             </div>
         </section>
-        <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <!-- prims -->
         <script src="../js/prism_monokai.js"></script>
-        
     </body>
 </html>

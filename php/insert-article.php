@@ -23,7 +23,7 @@
     }else { //Se ingresará el nuevo registro
         $sql = "INSERT INTO Articulos (fecha,titulo,subTitulo,articulo,preview,idUsuario) VALUES ('".$fecha."','".$titulo."','".$subtitulo."','".$articulo."', ".$preview.", 1)";
     }
-
+    // echo "<pre>"; var_dump("-> nada"); die();
     //Insert/Update de datos del formulario
     $query = $db->query($sql);
 

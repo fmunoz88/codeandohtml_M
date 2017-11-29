@@ -33,18 +33,12 @@
         <br>
         <section class="grid add-article">
             <!-- Page Layout here -->
-            <div class="row container" id="">
-                
-                
-                
+            <div class="row container">
                 <!-- LEFT SIDE -->
                 <!-- <div class="left-side col s12  l1">
-                    
                     <h4>Markdown</h4>
-                    
                 </div> -->
                 <!-- RIGHT SIDE -->
-                
                 <div class="right-side col s12  l12">
                     
                     <div class="row form-wrapper">
@@ -68,18 +62,19 @@
                                 <button id="btnPreview" class="waves-effect grey darken-3 btn" type="button" name="button">Preview</button>
                             </div>
                             <div class="separator_0"></div>
-                            
                         </form>
                         
-                        </div>
-                        
                     </div>
-                    
-                    <!-- LOAD PREVIEW -->
-                    <div id="preview-article">
+                        
                 </div>
+                <div class="loading">
+                    <img src="../img/big/loading_2.svg" alt="">
+                </div>
+                    <!-- LOAD PREVIEW -->
+                <div id="preview-article"></div>
             </div>
         </section>
+        <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <!-- Footer -->
         <footer>
             <ul class="social">
@@ -96,21 +91,13 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script src="../js/material-dialog.min.js" type="text/javascript"></script>
         
         <!-- prims -->
         <!-- <script src="../js/prism_monokai.js"></script> -->
         <!-- Markdown -->
         <script type="text/javascript" src="../markdown/js/editormd.min.js"></script>
         <script src="../markdown/js/languages/en.js"></script>
-        
-        <script src="../markdown/lib/marked.min.js"></script>
-        <script src="../markdown/lib/prettify.min.js"></script>
-        
-        <script src="../markdown/lib/raphael.min.js"></script>
-        <script src="../markdown/lib/underscore.min.js"></script>
-        <script src="../markdown/lib/sequence-diagram.min.js"></script>
-        <script src="../markdown/lib/flowchart.min.js"></script>
-        <script src="../markdown/lib/jquery.flowchart.min.js"></script>
         
         <script type="text/javascript">
             var testEditor;
@@ -122,63 +109,42 @@
                     syncScrolling : "single",
                     path    : "../markdown/lib/",
                     // emoji : true
-                    
                 });
-                
-                /*
-                // or
-                testEditor = editormd({
-                    id      : "test-editormd",
-                    width   : "90%",
-                    height  : 640,
-                    path    : "../lib/"
-                });
-                */
             });
         </script>
         <script type="text/javascript">
             $(document).ready(function(){
                 
                 $("#btnSave").click(function(){
-                    saveArticle(0,"");
+                
+                    MaterialDialog.dialog("¿Desea publicar el artículo?", {
+                		title:"Confirmación",
+                		modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
+                		buttons:{
+                			// Use by default close and confirm buttons
+                			close:{
+                				className:"red",
+                				text:"Cerrar",
+                				callback:function(){
+                					// alert("closed!");
+                				}
+                			},
+                			confirm:{
+                				className:"blue",
+                				text:"Publicar",
+                				modalClose:true,
+                				callback:function(){
+                                    saveArticle(0,"");
+                				}
+                			}
+                		}
+                	});
+                
                 });
+                
                 $("#btnPreview").click(function(){
-                    
-                    // $.get("test.md", function(markdown) {
-                    // 
-                    //     var testEditormdView;
-                    // 
-    				//     testEditormdView = editormd.markdownToHTML("preview-article", {
-                    //         markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
-                    //         //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
-                    //         htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                    //         //toc             : false,
-                    //         tocm            : true,    // Using [TOCM]
-                    //         //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
-                    //         //gfm             : false,
-                    //         //tocDropdown     : true,
-                    //         // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
-                    //         emoji           : true,
-                    //         taskList        : true,
-                    //         tex             : true,  // 默认不解析
-                    //         // flowChart       : true,  // 默认不解析
-                    //         sequenceDiagram : true,  // 默认不解析
-                    //     });
-                    // 
-                    //     //console.log("返回一个 jQuery 实例 =>", testEditormdView);
-                    // 
-                    //     // 获取Markdown源码
-                    //     //console.log(testEditormdView.getMarkdown());
-                    // 
-                    //     //alert(testEditormdView.getMarkdown());
-                    // });
-                    
                     var preview_id = $("#preview_id").val();
-                    
                     saveArticle(1,preview_id);
-                    
-                    // $(".preview-article").load("preview.php?id=2");
-                    
                 });
                 
                 function saveArticle(preview,id){
@@ -192,48 +158,26 @@
                         url: "../php/insert-article.php",
                         data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview},
                         beforeSend: function(){
-                            // Loading.show();
+                            
+                            $(".loading").slideDown(400);
                         },
                         complete: function(){
-                            // Loading.hide();
+                            $(".loading").slideUp(400);
                         },
                         success: function(data){
                             if(data.success){    
                                 //Si se retorna el ID, quiere decir que es un preview
                                 if(data.id){
                                     console.log(data.id)
-                                    // $.get("preview.php?id=" + data.id, function(markdown) {
-                                    // 
-                                    //     var testEditormdView;
-                                    // 
-                    				//     testEditormdView = editormd.markdownToHTML("preview-article", {
-                                    //         markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
-                                    //         //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
-                                    //         htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                                    //         //toc             : false,
-                                    //         tocm            : true,    // Using [TOCM]
-                                    //         //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
-                                    //         //gfm             : false,
-                                    //         //tocDropdown     : true,
-                                    //         // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
-                                    //         emoji           : true,
-                                    //         taskList        : true,
-                                    //         tex             : true,  // 默认不解析
-                                    //         // flowChart       : true,  // 默认不解析
-                                    //         sequenceDiagram : true,  // 默认不解析
-                                    //     });
-                                    // });
-                                    
                                     $("#preview-article").load("preview.php?id=" + data.id );
+                                    $("#preview_id").val(data.id);
                                 }else{ //De lo contrario sólo redireccionará a la página principal
                                     console.log("TODO OK...")
                                 }
                             }
                         }
                     });
-                    
                 }
-                
             });
         </script>
     </body>

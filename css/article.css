@@ -18,6 +18,8 @@ section.grid .left-side article {
     text-align: center; }
   section.grid .left-side article p {
     font-size: 130%; }
+    section.grid .left-side article p img {
+      max-width: 100%; }
   section.grid .left-side article pre {
     font-size: 0.9em; }
 section.grid .left-side .tag-article {
@@ -31,6 +33,8 @@ section.grid .left-side .tag-article {
     margin-bottom: 10px; }
 section.grid .left-side .author-article {
   text-align: right; }
+  section.grid .left-side .author-article span {
+    margin-right: 20px; }
   section.grid .left-side .author-article .chip {
     border-radius: 50px;
     height: 50px;

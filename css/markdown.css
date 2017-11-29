@@ -44,5 +44,9 @@
     width: auto;
     height: auto;
     margin: inherit; }
+.add-article .loading {
+  clear: both;
+  text-align: center;
+  display: none; }
 
 /*# sourceMappingURL=markdown.css.map */

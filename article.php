@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -43,17 +43,23 @@
                     <article class="">
                         
                         <?php 
-                            
+                            //Leer desde la DB el artículo seleccionado
                             $parsedown = new Parsedown();
                             
                             $record = $db->query("SELECT * FROM Articulos WHERE id = ".$_GET['id']." LIMIT 1");
                             
                             foreach ($record as $v) {
-                                // echo "<pre>"; var_dump("->",$v);
+                                
+                                //get date
+                                $date = new DateTime($v['fecha']);
+                                //format date
+                                setlocale(LC_TIME, "es_ES");
+                                
                                 echo ('<h3 class="title-article">'.$v['titulo'].'</h3>');
                                 echo ('<h4 class="subtitle-article">'.$v['subTitulo'].'</h4>');
                                 echo ('<div class="separator_0"></div>');
                                 echo ('<div class="author-article">');
+                                    echo ('<span><i>posteado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
                                     echo ('<div class="chip ">');
                                     echo ('<img class=""src="img/medium/fabian.png" alt="Contact Person">');
                                         echo ('<a class="" href="#">Por Fabián Muñoz</a>');

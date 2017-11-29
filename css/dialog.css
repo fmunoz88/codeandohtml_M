@@ -1,0 +1,20 @@
+/* ===================================================== */
+/* ================= Kraimoz Developer ================= */
+/* ===================================================== */
+.material-dialog {
+  width: 40% !important; }
+  .material-dialog .modal-footer .btn.confirm {
+    background-color: #42a5f5 !important;
+    margin-left: 10px; }
+  .material-dialog .modal-footer .btn.confirm:hover {
+    transition: 0.5s;
+    background-color: #1e88e5 !important; }
+  .material-dialog .modal-footer .btn.close {
+    background-color: #bdbdbd !important;
+    margin-left: 10px; }
+  .material-dialog .modal-footer .btn.close:hover {
+    color: white;
+    background-color: #757575 !important;
+    transition: 0.5s; }
+
+/*# sourceMappingURL=dialog.css.map */
