@@ -79,18 +79,8 @@
                 <div id="preview-article"></div>
             </div>
         </section>
-        
-        <!-- Modal -->
-        <div id="modal1" class="modal">
-        	<div class="modal-content">
-        		<h4>Alert222</h4>
-        		<p>Hello</p>
-        	</div>
-        	<div class="modal-footer">
-        		<a href="#!" class="btn modal-close">Close</a>
-        	</div>
-        </div>	
         <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
+        <input type="hidden" name="" id="save_exit" value="">
         <!-- Footer -->
         <footer>
             <ul class="social">
@@ -133,29 +123,33 @@
                 
                 $("#btnSave").click(function(){
                 
-                    MaterialDialog.dialog("¿Desea publicar el artículo?", {
-                		title:"Confirmación",
-                		modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
-                		buttons:{
-                			// Use by default close and confirm buttons
-                			close:{
-                				className:"red",
-                				text:"Cerrar",
-                				callback:function(){
-                					// alert("closed!");
-                				}
-                			},
-                			confirm:{
-                				className:"blue",
-                				text:"Publicar",
-                				modalClose:true,
-                				callback:function(){
-                                    
-                                    saveArticle(0,$("#preview_id").val());
-                				}
-                			}
-                		}
-                	});
+                    var title = $("#titulo").val();
+                    var content = $(".editormd-markdown-textarea").val();
+                
+                    if(validate(title, content)){
+                        MaterialDialog.dialog("¿Desea publicar este artículo? <br> Quedará pendiente por revisón por un Administrador.", {
+                    		title:"Confirmación",
+                    		modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
+                    		buttons:{
+                    			// Use by default close and confirm buttons
+                    			close:{
+                    				className:"red",
+                    				text:"Cerrar",
+                    				callback:function(){
+                    					// alert("closed!");
+                    				}
+                    			},
+                    			confirm:{
+                    				className:"blue",
+                    				text:"Publicar",
+                    				modalClose:true,
+                    				callback:function(){
+                                        saveArticle(0,$("#preview_id").val());
+                    				}
+                    			}
+                    		}
+                    	});
+                    }
                 
                 });
                 
@@ -179,6 +173,7 @@
                             beforeSend: function(){
                                 $(".loading").slideDown(400);
                                 $("#preview-article").slideUp(400);
+                                $("#save_exit").val(1);
                             },
                             complete: function(){
                                 $(".loading").slideUp(400);
@@ -192,7 +187,7 @@
                                         $("#preview-article").load("preview.php?id=" + data.id );
                                         $("#preview_id").val(data.id);
                                     }else{ //De lo contrario sólo redireccionará a la página principal
-                                        console.log("TODO OK...")
+                                        console.log("TODO OK...");
                                         $(location).attr('href','../index.php');
                                     }
                                 }
@@ -229,6 +224,12 @@
                         return true;
                     }
                 }
+
+                $(window).bind('beforeunload', function(){
+                    if(($("#titulo").val() != "" || $(".editormd-markdown-textarea").val()) && $("#save_exit").val() != 1 ){
+                        return false;
+                    }
+                }); 
             });
         </script>
     </body>
