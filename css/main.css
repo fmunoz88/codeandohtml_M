@@ -236,18 +236,18 @@ footer.second {
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
 /* ===================================================== */
-.material-dialog {
+.material-dialog, .material-alert {
   width: 40% !important; }
-  .material-dialog .modal-footer .btn.confirm {
+  .material-dialog .modal-footer .btn.confirm, .material-alert .modal-footer .btn.confirm {
     background-color: #42a5f5 !important;
     margin-left: 10px; }
-  .material-dialog .modal-footer .btn.confirm:hover {
+  .material-dialog .modal-footer .btn.confirm:hover, .material-alert .modal-footer .btn.confirm:hover {
     transition: 0.5s;
     background-color: #1e88e5 !important; }
-  .material-dialog .modal-footer .btn.close {
+  .material-dialog .modal-footer .btn.close, .material-alert .modal-footer .btn.close {
     background-color: #bdbdbd !important;
     margin-left: 10px; }
-  .material-dialog .modal-footer .btn.close:hover {
+  .material-dialog .modal-footer .btn.close:hover, .material-alert .modal-footer .btn.close:hover {
     color: white;
     background-color: #757575 !important;
     transition: 0.5s; }

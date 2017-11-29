@@ -29,6 +29,11 @@
                     </ul>
                 </div>
             </nav>
+            <div class="alert-articles ">
+                <div class="container">
+                    <span>Tienes un artículo pendiente <a href="#">AQUÍ</a>. Favor de terminarlo o cancelarlo <a href="#">AQUÍ</a>.</span>
+                </div>
+            </div>
         </header>
         <br>
         <section class="grid add-article">
@@ -74,6 +79,17 @@
                 <div id="preview-article"></div>
             </div>
         </section>
+        
+        <!-- Modal -->
+        <div id="modal1" class="modal">
+        	<div class="modal-content">
+        		<h4>Alert222</h4>
+        		<p>Hello</p>
+        	</div>
+        	<div class="modal-footer">
+        		<a href="#!" class="btn modal-close">Close</a>
+        	</div>
+        </div>	
         <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <!-- Footer -->
         <footer>
@@ -134,7 +150,8 @@
                 				text:"Publicar",
                 				modalClose:true,
                 				callback:function(){
-                                    saveArticle(0,"");
+                                    
+                                    saveArticle(0,$("#preview_id").val());
                 				}
                 			}
                 		}
@@ -153,30 +170,64 @@
                     var subtitle = $("#subtitulo").val();
                     var content = $(".editormd-markdown-textarea").val();
                     
-                    $.ajax({
-                        type: 'POST',
-                        url: "../php/insert-article.php",
-                        data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview},
-                        beforeSend: function(){
-                            
-                            $(".loading").slideDown(400);
-                        },
-                        complete: function(){
-                            $(".loading").slideUp(400);
-                        },
-                        success: function(data){
-                            if(data.success){    
-                                //Si se retorna el ID, quiere decir que es un preview
-                                if(data.id){
-                                    console.log(data.id)
-                                    $("#preview-article").load("preview.php?id=" + data.id );
-                                    $("#preview_id").val(data.id);
-                                }else{ //De lo contrario sólo redireccionará a la página principal
-                                    console.log("TODO OK...")
+                    if(validate(title, content)){
+                    
+                        $.ajax({
+                            type: 'POST',
+                            url: "../php/insert-article.php",
+                            data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview},
+                            beforeSend: function(){
+                                $(".loading").slideDown(400);
+                                $("#preview-article").slideUp(400);
+                            },
+                            complete: function(){
+                                $(".loading").slideUp(400);
+                                $("#preview-article").slideDown(400);
+                            },
+                            success: function(data){
+                                if(data.success){    
+                                    //Si se retorna el ID y el valor preview == 1, quiere decir que es un preview
+                                    if(data.id && data.preview == 1){
+                                        console.log(data.id)
+                                        $("#preview-article").load("preview.php?id=" + data.id );
+                                        $("#preview_id").val(data.id);
+                                    }else{ //De lo contrario sólo redireccionará a la página principal
+                                        console.log("TODO OK...")
+                                        $(location).attr('href','../index.php');
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
+                        
+                    }
+                
+                }
+                
+                //Función que valida los campos vación al guardar o preview el artículo
+                function validate(title, content){
+                    var text = "";
+                    if(title == ""){
+                        text += "- <b>Título no puede estar vacío</b>";
+                    }
+                    if(content == ""){
+                        text += "<br>- <b>Se tiene que agregar un contenido al artículo</b>";
+                    }
+                    if(text != ""){
+                        MaterialDialog.alert( text, {
+                    		title:'Validando datos', // Modal title
+                    		buttons:{ // Receive buttons (Alert only use close buttons)
+                    			close:{
+                    				text:'Cerrar', //Text of close button
+                    				className:'red', // Class of the close button
+                    				callback:function(){ }// Function for modal click
+                    			}
+                    		}
+                    	});
+                        return false;
+                    }else{
+                        console.log("BIEN");
+                        return true;
+                    }
                 }
             });
         </script>

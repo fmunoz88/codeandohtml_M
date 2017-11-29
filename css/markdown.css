@@ -1,6 +1,17 @@
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
 /* ===================================================== */
+header .alert-articles {
+  background-color: #42a5f5; }
+  header .alert-articles .container {
+    height: 60px;
+    color: white;
+    line-height: 60px; }
+    header .alert-articles .container a {
+      color: black; }
+    header .alert-articles .container a:hover {
+      text-decoration: underline; }
+
 .add-article .container .row {
   margin-left: inherit;
   margin-right: inherit; }
