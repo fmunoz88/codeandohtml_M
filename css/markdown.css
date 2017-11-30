@@ -20,6 +20,34 @@ header .alert-articles {
   color: white; }
   .add-article .form-wrapper button {
     margin-right: 20px; }
+  .add-article .form-wrapper form {
+    padding-top: 20px; }
+    .add-article .form-wrapper form h5 {
+      margin-left: 10px;
+      font-size: 150%; }
+    .add-article .form-wrapper form ol#selectable {
+      height: 120px;
+      overflow: scroll;
+      background: #272822;
+      padding: 0; }
+      .add-article .form-wrapper form ol#selectable li {
+        width: 90px;
+        height: 90px;
+        display: inline-block;
+        padding: 2px;
+        text-align: left !important; }
+        .add-article .form-wrapper form ol#selectable li img {
+          max-width: 100%; }
+    .add-article .form-wrapper form ol#selectable .ui-selected {
+      background-color: #ffab40; }
+    .add-article .form-wrapper form .tabs {
+      background-color: #424242; }
+      .add-article .form-wrapper form .tabs li a {
+        color: #ffab40; }
+      .add-article .form-wrapper form .tabs li.indicator {
+        background-color: #ffab40; }
+      .add-article .form-wrapper form .tabs li a:hover {
+        color: #ff6d00; }
 .add-article #test-editormd {
   z-index: 1;
   width: 100% !important; }
