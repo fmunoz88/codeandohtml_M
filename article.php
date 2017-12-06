@@ -49,7 +49,6 @@
                             $record = $db->query("SELECT * FROM Articulos WHERE id = ".$_GET['id']." LIMIT 1");
                             
                             foreach ($record as $v) {
-                                
                                 //get date
                                 $date = new DateTime($v['fecha']);
                                 //format date
@@ -68,7 +67,6 @@
                                 
                                 echo $parsedown->text($v['articulo']);
                             }
-                            
                         ?>
                     <!-- end code -->
                     </article>
@@ -217,6 +215,5 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <!-- prims -->
         <script src="js/prism_monokai.js"></script>
-        
     </body>
 </html>

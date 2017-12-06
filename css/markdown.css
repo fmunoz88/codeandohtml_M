@@ -48,6 +48,16 @@ header .alert-articles {
         background-color: #ffab40; }
       .add-article .form-wrapper form .tabs li a:hover {
         color: #ff6d00; }
+    .add-article .form-wrapper form .tags {
+      padding: 5px; }
+      .add-article .form-wrapper form .tags .chips-autocomplete {
+        margin: 0 auto;
+        margin-left: 5px; }
+        .add-article .form-wrapper form .tags .chips-autocomplete input {
+          color: white; }
+        .add-article .form-wrapper form .tags .chips-autocomplete .chip {
+          color: #757575;
+          background-color: white; }
 .add-article #test-editormd {
   z-index: 1;
   width: 100% !important; }

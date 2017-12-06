@@ -91,6 +91,23 @@
                             <!-- MARKDOWN HERE -->
                             <div id="test-editormd"></div>
                             <!-- END MARKDOWN -->
+                            <!-- TAGS -->
+                            <div class="separator_1"></div>
+                            <div class="tags">
+                                <h5>Ingresa los tags</h5>
+                                <div class="chips chips-autocomplete"></div>
+                                <!-- <div class="row">
+                                    <div class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <label for="tags">Autocomplete</label>
+                                                <input type="text" id="tags" class="autocomplete">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- END TAGS -->
                             <div class="separator_1"></div>
                             <div class="button-more">
                                 <button id="btnSave" class="waves-effect grey darken-3 btn" type="button" name="button">Guardar</button>
@@ -112,6 +129,7 @@
         </section>
         <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <input type="hidden" name="" id="save_exit" value="">
+        <input type="" class="chips-autocomplete2" name="" value="">
         <!-- Footer -->
         <footer>
             <ul class="social">
@@ -129,7 +147,8 @@
         <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <!-- <script type="text/javascript" src="../js/materialize.min.js"></script> -->
+        <script type="text/javascript" src="../js/materialize.js"></script>
         <script src="../js/material-dialog.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="../markdown/js/editormd.min.js"></script>
         <script src="../markdown/js/languages/en.js"></script>
@@ -152,9 +171,48 @@
                 $( "#selectable" ).selectable();
             } );
             $(document).ready(function(){
+                //Init Autocomplete
+                $('.chips-autocomplete').material_chip();
                 
-                // $('ul.tabs').tabs();
+                $(function() {
+                    $.ajax({
+                        type: 'GET',
+                        url: '../libs/tags.php',
+                        // url: 'https://restcountries.eu/rest/v2/all?fields=name',
+                        success: function(response) {
+                            
+                            // var tagArray = response;
+                            // var dataTag = {};
+    
+                            // $.each(tagArray , function (index, value){
+                            //     dataTag[tagArray[index].name] = tagArray[index].null;
+                                // dataTag[tagArray[index].id] = tagArray[index].id;
+                                // dataTag[tagArray[index].id] = 1;
+                                // console.log(tagArray[index]);
+                            // });
+                            // console.log(tagArray);
+                            
                 
+                            $('.chips-autocomplete').material_chip({
+                                autocompleteOptions: {
+                                    data: response,
+                                    autocompleteData: response,
+                                    limit: 5,
+                                    minLength: 1
+                                }
+                            });
+                            
+                            
+                            
+                        }
+                    });
+                });
+                
+                $('.chips').on('chip.add', function(e, chip){
+                    // you have the added chip here
+                    console.log(chip);
+                  });
+
                 //Obtener la img seleccionada
                 $("#selectable li a img").click(function(){
                     $("#path_img").val($(this).attr("id"));

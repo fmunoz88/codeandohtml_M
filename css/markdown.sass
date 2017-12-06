@@ -43,7 +43,6 @@ header
                 
                 
                 li 
-                    // border: 1px solid green
                     width: 90px
                     height: 90px
                     display: inline-block
@@ -52,7 +51,6 @@ header
                     
                     img
                         max-width: 100%
-                        // height: 100
             
             ol#selectable .ui-selected
                 background-color: $c_ambar
@@ -70,6 +68,23 @@ header
                 
                 li a:hover
                     color: #ff6d00
+                    
+            //Tags
+            .tags
+                padding: 5px
+                .chips-autocomplete
+                    // border: 1px solid red
+                    // width: 95%
+                    margin: 0 auto
+                    margin-left: 5px
+                    // background-color: $c_black-lighten-2
+                    
+                    input
+                        color: white
+                        
+                    .chip
+                        color: $c_grey-darken-1
+                        background-color: white
     
     #test-editormd
         z-index: 1
@@ -116,7 +131,6 @@ header
             margin: inherit
 
     .loading
-        // border: 1px solid red
         clear: both
         text-align: center
         display: none
