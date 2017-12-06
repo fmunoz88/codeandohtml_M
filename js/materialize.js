@@ -4668,11 +4668,9 @@ if (Vel) {
             oldVal,
             $inputDiv = $input.closest('.input-field'); // Div to append on
 
-            console.log("aqui -->" + data);
-
         // Check if data isn't empty
         if (!$.isEmptyObject(data)) {
-          var $autocomplete = $('<ul class="autocomplete-content dropdown-content"></ul>');
+          var $autocomplete = $('<ul class="autocomplete-content 11 dropdown-content"></ul>');
           var $oldAutocomplete;
 
           // Append autocomplete element.
@@ -4692,15 +4690,15 @@ if (Vel) {
             $autocomplete = $oldAutocomplete;
           }
 
-          // Highlight partial match.
-          var highlight = function (string, $el) {
+          // Highlight partial match. 
+          var highlight = function (string, $el, id) { //Fabián: id
             var img = $el.find('img');
             var matchStart = $el.text().toLowerCase().indexOf("" + string.toLowerCase() + ""),
                 matchEnd = matchStart + string.length - 1,
                 beforeMatch = $el.text().slice(0, matchStart),
                 matchText = $el.text().slice(matchStart, matchEnd + 1),
                 afterMatch = $el.text().slice(matchEnd + 1);
-            $el.html("<span>" + beforeMatch + "<span class='highlight'>" + matchText + "</span>" + afterMatch + "</span>");
+            $el.html("<span>" + beforeMatch + "<span class='highlight' id='"+id+"'>" + matchText + "</span>" + afterMatch + "</span>");
             if (img.length) {
               $el.prepend(img);
             }
@@ -4739,25 +4737,57 @@ if (Vel) {
               removeAutocomplete();
 
               if (val.length >= options.minLength) {
-                for (var key in data) {
-                  if (data.hasOwnProperty(key) && key.toLowerCase().indexOf(val) !== -1) {
-                    // Break if past limit
-                    if (count >= options.limit) {
-                      break;
-                    }
 
+                //Fabián
+                var obj = findObjectByKey(data, 'name', val);
+
+                $.each(obj , function (index, value){
+                    
                     var autocompleteOption = $('<li></li>');
-                    if (!!data[key]) {
-                      autocompleteOption.append('<img src="' + data[key] + '" class="right circle"><span>' + key + '</span>');
-                    } else {
-                      autocompleteOption.append('<span>' + key + '</span>');
-                    }
+                    //Fabián
+                    autocompleteOption.append('<span id=" '+ value.id+' ">' + value.name + '</span>');
 
                     $autocomplete.append(autocompleteOption);
-                    highlight(val, autocompleteOption);
+                    highlight(val, autocompleteOption, value.id);
                     count++;
-                  }
+
+                });
+
+                // Fabián Muñoz
+                function findObjectByKey(array, key, value) {
+                    var objeto = [];
+                    for (var i = 0; i < array.length; i++) {
+                        var name = array[i].name.toLowerCase();
+                        var val = value.toLowerCase();
+
+                        if (name.indexOf(val) > -1) {
+                            objeto.push( array[i] );
+                        }
+                    }
+                    return objeto;
                 }
+
+                // for (var key in data) {
+
+                //   if (data.hasOwnProperty(key) && key.toLowerCase().indexOf(val) !== -1) {
+                //     // Break if past limit
+                //     if (count >= options.limit) {
+                //       break;
+                //     }
+
+                //     var autocompleteOption = $('<li></li>');
+                //     if (!!data[key]) {
+                //       autocompleteOption.append('<img src="' + data[key] + '" class="right circle"><span>' + key + '</span>');
+                //     } else {
+                //       autocompleteOption.append('<span>' + key + '</span>');
+                //     }
+
+                //     $autocomplete.append(autocompleteOption);
+                //     highlight(val, autocompleteOption);
+                //     count++;
+                //   }
+                // }
+
               }
             }
 
@@ -4806,11 +4836,16 @@ if (Vel) {
             var text = $(this).text().trim();
             $input.val(text);
             $input.trigger('change');
+
+            //Fabián: Se obtiene el ID desde el SPAN autocomplete
+            var id = $(this).find("span span").get(0).id;
+
             removeAutocomplete();
 
             // Handle onAutocomplete callback.
+            //Fabián
             if (typeof options.onAutocomplete === "function") {
-              options.onAutocomplete.call(this, text);
+              options.onAutocomplete.call(this, text, id);
             }
           });
 
@@ -5522,7 +5557,6 @@ if (Vel) {
         if (!curr_options.data || !(curr_options.data instanceof Array)) {
           curr_options.data = [];
         }
-
         $chips.data('chips', curr_options.data);
         $chips.attr('data-index', i);
         $chips.attr('data-initialized', true);
@@ -5687,11 +5721,11 @@ if (Vel) {
       }
 
       // Setup autocomplete if needed.
+      //Fabián
       var input = $('#' + chipId);
       if (self.hasAutocomplete) {
-        curr_options.autocompleteOptions.onAutocomplete = function (val) {
-          console.log("aqui --> " + val);
-          self.addChip({ tag: val }, $chips);
+        curr_options.autocompleteOptions.onAutocomplete = function (val, val2) {
+          self.addChip({ tag: val, id: val2 }, $chips);
           input.val('');
           input.focus();
         };
@@ -5740,7 +5774,6 @@ if (Vel) {
       if (!self.isValid($chips, elem)) {
         return;
       }
-      
       var $renderedChip = self.renderChip(elem);
       var newData = [];
       var oldData = $chips.data('chips');
