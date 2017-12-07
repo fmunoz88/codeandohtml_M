@@ -9,10 +9,10 @@ section.grid .left-side article {
   color: white;
   text-align: justify; }
   section.grid .left-side article h3.title-article {
-    color: white;
+    color: #ffab40;
     text-align: center;
     font-size: 400%;
-    font-weight: bold; }
+    font-weight: 500; }
   section.grid .left-side article h4.subtitle-article {
     color: #ffab40;
     text-align: center; }
@@ -29,7 +29,7 @@ section.grid .left-side .tag-article {
     display: inline-block;
     border: 1px solid #272822;
     margin-right: 5px;
-    padding: 8px 10px;
+    padding: 8px 15px;
     margin-bottom: 10px; }
 section.grid .left-side .author-article {
   text-align: right; }

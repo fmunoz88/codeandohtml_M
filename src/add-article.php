@@ -56,11 +56,11 @@
                                     <input name="titulo" id="titulo" type="text" class="validate">
                                     <label for="icon_prefix">Título</label>
                                 </div>
-                                <div class="input-field col s12">
+                                <!-- <div class="input-field col s12">
                                     <i class="material-icons prefix">phone</i>
                                     <input name="subtitulo" id="subtitulo" type="text" class="validate">
                                     <label for="icon_telephone">Sub Título</label>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- Tabs -->
                             <h5>Imagen del artículo</h5>
@@ -96,16 +96,6 @@
                             <div class="tags">
                                 <h5>Ingresa los tags</h5>
                                 <div class="chips chips-autocomplete"></div>
-                                <!-- <div class="row">
-                                    <div class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <label for="tags">Autocomplete</label>
-                                                <input type="text" id="tags" class="autocomplete">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- END TAGS -->
                             <div class="separator_1"></div>
@@ -129,7 +119,6 @@
         </section>
         <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <input type="hidden" name="" id="save_exit" value="">
-        <input type="" class="chips-autocomplete2" name="" value="">
         <!-- Footer -->
         <footer>
             <ul class="social">
@@ -152,6 +141,7 @@
         <script src="../js/material-dialog.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="../markdown/js/editormd.min.js"></script>
         <script src="../markdown/js/languages/en.js"></script>
+        <script src="../js/codeandohtml.js"></script>
         
         <script type="text/javascript">
             var testEditor;
@@ -178,155 +168,26 @@
                     $.ajax({
                         type: 'GET',
                         url: '../libs/tags.php',
-                        // url: 'https://restcountries.eu/rest/v2/all?fields=name',
                         success: function(response) {
                             
-                            // var tagArray = response;
-                            // var dataTag = {};
-    
-                            // $.each(tagArray , function (index, value){
-                            //     dataTag[tagArray[index].name] = tagArray[index].null;
-                                // dataTag[tagArray[index].id] = tagArray[index].id;
-                                // dataTag[tagArray[index].id] = 1;
-                                // console.log(tagArray[index]);
-                            // });
-                            // console.log(tagArray);
-                            
-                
                             $('.chips-autocomplete').material_chip({
                                 autocompleteOptions: {
                                     data: response,
-                                    autocompleteData: response,
-                                    limit: 5,
-                                    minLength: 1
+                                    // autocompleteData: response,
+                                    limit: 2,
+                                    minLength: 2
                                 }
                             });
-                            
-                            
                             
                         }
                     });
                 });
-                
-                $('.chips').on('chip.add', function(e, chip){
-                    // you have the added chip here
-                    console.log(chip);
-                  });
 
                 //Obtener la img seleccionada
                 $("#selectable li a img").click(function(){
                     $("#path_img").val($(this).attr("id"));
-                    // console.log($(this).attr("id"));
                 });
                 
-                $("#btnSave").click(function(){
-                
-                    var title = $("#titulo").val();
-                    var content = $(".editormd-markdown-textarea").val();
-                
-                    if(validate(title, content)){
-                        MaterialDialog.dialog("¿Desea publicar este artículo? <br> - Quedará pendiente de revisón por un Administrador.", {
-                    		title:"Confirmación",
-                    		modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
-                    		buttons:{
-                    			// Use by default close and confirm buttons
-                    			close:{
-                    				className:"red",
-                    				text:"Cerrar",
-                    				callback:function(){
-                    					// alert("closed!");
-                    				}
-                    			},
-                    			confirm:{
-                    				className:"blue",
-                    				text:"Publicar",
-                    				modalClose:true,
-                    				callback:function(){
-                                        $("#save_exit").val(1);
-                                        saveArticle(0,$("#preview_id").val());
-                    				}
-                    			}
-                    		}
-                    	});
-                    }
-                
-                });
-                
-                $("#btnPreview").click(function(){
-                    var preview_id = $("#preview_id").val();
-                    saveArticle(1,preview_id);
-                });
-                
-                function saveArticle(preview,id){
-                    
-                    var title = $("#titulo").val();
-                    var subtitle = $("#subtitulo").val();
-                    var content = $(".editormd-markdown-textarea").val();
-                    var id_img = $("#path_img").val();
-                    
-                    if(validate(title, content, id_img)){
-                        $.ajax({
-                            type: 'POST',
-                            url: "../php/insert-article.php",
-                            data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview,"id_img":id_img},
-                            beforeSend: function(){
-                                $(".loading").slideDown(400);
-                                $("#preview-article").slideUp(400);
-                            },
-                            complete: function(){
-                                $(".loading").slideUp(400);
-                                $("#preview-article").slideDown(400);
-                            },
-                            success: function(data){
-                                if(data.success){
-                                    //Si se retorna el ID y el valor preview == 1, quiere decir que es un preview
-                                    if(data.id && data.preview == 1){
-                                        console.log(data.id)
-                                        $("#preview-article").load("preview.php?id=" + data.id );
-                                        $("#preview_id").val(data.id);
-                                    }else{ //De lo contrario sólo redireccionará a la página principal
-                                        console.log("TODO OK...");
-                                        $(location).attr('href','../index.php');
-                                    }
-                                }else{
-                                    console.log(data.message)
-                                }
-                            }
-                        });    
-                    }
-                    
-                }
-                
-                //Función que valida los campos vación al guardar o preview el artículo
-                function validate(title, content, img){
-                    var text = "";
-                    if(title == ""){
-                        text += "- <b>Título no puede estar vacío.</b>";
-                    }
-                    if(img == ""){
-                        text += "<br>- <b>Debe seleccionar una imagen.</b>";
-                    }
-                    if(content == ""){
-                        text += "<br>- <b>Se tiene que agregar un contenido al artículo.</b>";
-                    }
-                    if(text != ""){
-                        MaterialDialog.alert( text, {
-                    		title:'Validando datos', // Modal title
-                    		buttons:{ // Receive buttons (Alert only use close buttons)
-                    			close:{
-                    				text:'Cerrar', //Text of close button
-                    				className:'red', // Class of the close button
-                    				callback:function(){ }// Function for modal click
-                    			}
-                    		}
-                    	});
-                        return false;
-                    }else{
-                        console.log("VALIDACIÓN BIEN");
-                        return true;
-                    }
-                }
-
                 $(window).bind('beforeunload', function(){
                     if(($("#titulo").val() != "" || $(".editormd-markdown-textarea").val()) && $("#save_exit").val() != 1 ){
                         return false;

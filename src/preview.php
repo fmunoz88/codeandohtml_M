@@ -2,6 +2,8 @@
     include_once '../libs/Parsedown.php';
     include '../config/conexion.php';
     $db = db_connect();
+    
+    $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$_GET['id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,23 +29,19 @@
                         
                         <?php 
                             $parsedown = new Parsedown();
-                            $record = $db->query("SELECT * FROM Articulos WHERE id = ".$_GET['id']." LIMIT 1");
-                            
+                            // $record = $db->query("SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$_GET['id']." LIMIT 1");
+                            $record = $db->query($query);
                             foreach ($record as $v) {
                                 
                                 //get date
                                 $date = new DateTime($v['fecha']);
                                 //format date
                                 setlocale(LC_TIME, "es_ES");
-                                
-                                // echo "<pre>"; var_dump("->",$v);
+                            
                                 echo ('<h3 class="title-article">'.$v['titulo'].'</h3>');
-                                //Validad si viene el subtitle
-                                if(empty($v['subTitulo']))
-                                    echo ('<h4 class="subtitle-article">'.$v['subTitulo'].'</h4>');
                                 echo ('<div class="separator_0"></div>');
                                 echo ('<div class="author-article">');
-                                    echo ('<span><i>posteado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
+                                    echo ('<span><i>publicado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
                                     echo ('<div class="chip ">');
                                     echo ('<img class=""src="../img/medium/fabian.png" alt="Contact Person">');
                                         echo ('<a class="" href="#">Por Fabián Muñoz</a>');
@@ -57,12 +55,20 @@
                     <!-- End article -->
                     <!-- TAG ARTICLE -->
                     <div class="tag-article">
-                        <a class="hover_1" href="#">Yii 2 Framework</a>
-                        <a class="hover_1" href="#">Bootstrap</a>
-                        <a class="hover_1" href="#">CSS 3</a>
-                        <a class="hover_1" href="#">HTML 5</a>
-                        <a class="hover_1" href="#">Kartik</a>
-                        <a class="hover_1" href="#">MySQL</a>
+                        <?php 
+                            $record = $db->query($query);
+                            $row = mysqli_fetch_assoc($record);
+                            $tags = explode(',', trim($row['tags'],','));
+                            
+                            foreach($tags AS $k) {
+                                $tagID = (int) $k;
+                                
+                                $tagRecord = $db->query("SELECT t.nombre FROM Tags t WHERE t.id = ".$tagID);
+                                $tagRow = mysqli_fetch_assoc($tagRecord);
+                                // echo "<pre>"; var_dump($tagRow['nombre']);
+                                echo ('<a class="hover_1" href="#">'.$tagRow['nombre'].'</a>');
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

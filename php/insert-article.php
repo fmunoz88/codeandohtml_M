@@ -8,8 +8,9 @@
     $id = false;
 
     $fecha = date("Y-m-d H:m:s");
-    $titulo = $_POST['titulo'];
-    $subtitulo = $_POST['subtitulo'];
+    // $titulo = $_POST['titulo'];
+    // $subtitulo = $_POST['subtitulo'];
+    $titulo = mysqli_real_escape_string($db, ($_POST['titulo']));
     $articulo = mysqli_real_escape_string($db, ($_POST['contenido']));
     $preview = $_POST['preview'];
     $idImg = $_POST['id_img'];
@@ -19,6 +20,15 @@
         $id = $_POST['id'];
     }
     
+    //Obtener Tags y transformalos en String
+    $tags = $_POST['tags'];
+    $tagString = "";
+    foreach ($tags AS $k => $v) {
+        // var_dump($v);
+        $tagString .= $v . ",";
+    }
+    // echo "<pre>"; var_dump("->",$articulo, $_POST); die();
+    // die('aa');
     //Validar campos vacios
     if(empty($titulo) || empty($articulo) || empty($idImg)){
         
@@ -32,9 +42,9 @@
         
         // Validar si viene el ID del articulo, quiere decir que es un preview y se tiene que actualizar el registro
         if($id){
-            $sql = "UPDATE Articulos SET fecha = '".$fecha."', titulo = '".$titulo."', subTitulo = '".$subtitulo."', articulo = '".$articulo."', preview = '.$preview.', idImg = '.$idImg.' WHERE id = ".$id;
+            $sql = "UPDATE Articulos SET fecha = '".$fecha."', titulo = '".$titulo."', articulo = '".$articulo."', preview = '.$preview.', idImg = '.$idImg.', tags = '".$tagString."' WHERE id = ".$id;
         }else { //Se ingresará el nuevo registro
-            $sql = "INSERT INTO Articulos (fecha,titulo,subTitulo,articulo,preview,idImg,idUsuario,estatus) VALUES ('".$fecha."','".$titulo."','".$subtitulo."','".$articulo."', ".$preview.", ".$idImg.", 1,0)";
+            $sql = "INSERT INTO Articulos (fecha,titulo,articulo,tags,preview,idImg,idUsuario,estatus) VALUES ('".$fecha."','".$titulo."','".$articulo."','".$tagString."', ".$preview.", ".$idImg.", 1,0)";
         }
 
         //Insert/Update de datos del formulario
@@ -56,6 +66,7 @@
             ));
 
         }else{
+            echo "<pre>"; var_dump("->",$sql,mysqli_error($db)); die();
             header('Content-Type: application/json');
             echo json_encode(array(
                 'success' => false

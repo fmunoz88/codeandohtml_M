@@ -4648,6 +4648,7 @@ if (Vel) {
 
     /**************************
      * Auto complete plugin  *
+     **++ Edit by Kraimoz +**+
      *************************/
     $.fn.autocomplete = function (options) {
       // Defaults
@@ -4691,7 +4692,7 @@ if (Vel) {
           }
 
           // Highlight partial match. 
-          var highlight = function (string, $el, id) { //Fabián: id
+          var highlight = function (string, $el, id) { //Kraimoz: id (When option is selected, this span will be add to the input)
             var img = $el.find('img');
             var matchStart = $el.text().toLowerCase().indexOf("" + string.toLowerCase() + ""),
                 matchEnd = matchStart + string.length - 1,
@@ -4722,6 +4723,7 @@ if (Vel) {
           });
 
           // Perform search
+          // Kraimoz: Code of search data in the input autocomplete
           $input.off('keyup.autocomplete focus.autocomplete').on('keyup.autocomplete focus.autocomplete', function (e) {
             // Reset count.
             count = 0;
@@ -4738,13 +4740,13 @@ if (Vel) {
 
               if (val.length >= options.minLength) {
 
-                //Fabián
+                //Kraimoz
                 var obj = findObjectByKey(data, 'name', val);
 
                 $.each(obj , function (index, value){
                     
                     var autocompleteOption = $('<li></li>');
-                    //Fabián
+                    //Kraimoz: selection en list
                     autocompleteOption.append('<span id=" '+ value.id+' ">' + value.name + '</span>');
 
                     $autocomplete.append(autocompleteOption);
@@ -4753,12 +4755,14 @@ if (Vel) {
 
                 });
 
-                // Fabián Muñoz
+                //Kraimoz: Function for find key in the object
                 function findObjectByKey(array, key, value) {
                     var objeto = [];
                     for (var i = 0; i < array.length; i++) {
                         var name = array[i].name.toLowerCase();
                         var val = value.toLowerCase();
+
+                        // console.log(array[i].key);
 
                         if (name.indexOf(val) > -1) {
                             objeto.push( array[i] );
@@ -4837,13 +4841,13 @@ if (Vel) {
             $input.val(text);
             $input.trigger('change');
 
-            //Fabián: Se obtiene el ID desde el SPAN autocomplete
+            //Kraimoz: Get ID from autocomplete span
             var id = $(this).find("span span").get(0).id;
 
             removeAutocomplete();
 
             // Handle onAutocomplete callback.
-            //Fabián
+            //Kraimoz: Send ID 
             if (typeof options.onAutocomplete === "function") {
               options.onAutocomplete.call(this, text, id);
             }
@@ -5721,7 +5725,7 @@ if (Vel) {
       }
 
       // Setup autocomplete if needed.
-      //Fabián
+      //Kraimoz
       var input = $('#' + chipId);
       if (self.hasAutocomplete) {
         curr_options.autocompleteOptions.onAutocomplete = function (val, val2) {
@@ -5740,8 +5744,8 @@ if (Vel) {
      */
     this.renderChip = function (elem) {
       if (!elem.tag) return;
-
-      var $renderedChip = $('<div class="chip"></div>');
+      // console.log(elem.id);
+      var $renderedChip = $('<div data-tag="'+elem.id+'" class="tagsd chip"></div>');
       $renderedChip.text(elem.tag);
       if (elem.image) {
         $renderedChip.prepend($('<img />').attr('src', elem.image));
