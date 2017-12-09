@@ -13,6 +13,8 @@
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
 /* ===================================================== */
+.left-side .content-card {
+  transition: 0.5s; }
 .left-side .card {
   box-shadow: none; }
   .left-side .card .img-header {

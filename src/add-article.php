@@ -167,7 +167,7 @@
                 $(function() {
                     $.ajax({
                         type: 'GET',
-                        url: '../libs/tags.php',
+                        url: '../php/tags.php',
                         success: function(response) {
                             
                             $('.chips-autocomplete').material_chip({

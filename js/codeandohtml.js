@@ -126,3 +126,32 @@ function validate(title, content, img, tags){
         return true;
     }
 }
+
+//Load more card in Index
+var loadMoreCard = function(last_id){
+    
+    $.ajax({
+        type: 'POST',
+        url: "php/load-cards.php",
+        data: {"last_id":last_id},
+        beforeSend: function(){
+            $(".loading").show(400);
+            // $("#preview-article").slideUp(400);
+        },
+        complete: function(){
+            // $(".progress").hide();
+            // $("#preview-article").slideDown(400);
+        },
+        success: function(data){
+            $(".button-more").remove();
+            
+            setTimeout(function() {
+                $(".content-card").append(data);
+                $(".loading").hide();
+            }, 1000);
+            
+            
+        }
+    });    
+    
+}
