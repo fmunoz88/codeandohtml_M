@@ -60,11 +60,7 @@ function saveArticle(preview,id){
     //Obtener tags seleccionado
     var tagsObj = getTagsByTag();
     
-    // console.log("crash");
-    // console.log(tags); 
-    // return false;
-    
-    if(validate(title, content, id_img)){
+    if(validate(title, content, id_img, tagsObj.length)){
         $.ajax({
             type: 'POST',
             url: "../php/insert-article.php",
@@ -98,7 +94,7 @@ function saveArticle(preview,id){
 }
 
 //Función que valida los campos vación al guardar o preview el artículo
-function validate(title, content, img){
+function validate(title, content, img, tags){
     var text = "";
     if(title == ""){
         text += "- <b>Título no puede estar vacío.</b>";
@@ -109,6 +105,10 @@ function validate(title, content, img){
     if(content == ""){
         text += "<br>- <b>Se tiene que agregar un contenido al artículo.</b>";
     }
+    if(tags == 0){
+        text += "<br>- <b>Se tiene que agregar al menos un tag.</b>";
+    }
+    
     if(text != ""){
         MaterialDialog.alert( text, {
             title:'Validando datos', // Modal title

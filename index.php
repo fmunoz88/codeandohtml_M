@@ -1,3 +1,7 @@
+<?php 
+    include_once 'config/conexion.php';
+    $db = db_connect();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,119 +38,43 @@
                 <!-- LEFT SIDE -->
                 <div class="left-side col s12 l9">
                 <!-- Grey navigation panel -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="src/article.php"><img src="img/medium/angular.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="article.php?id=1">Curso Yii 2 con Bootstrap</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Article 1     -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="src/article.php"><img src="img/medium/html5_orange.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="src/article.php">Guía HTML 5</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Article 1     -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/php.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="#">Curso PHP 7 y MySQL</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Article 1     -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/python.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="#">Conexión Data Base con Python</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Article 1     -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/mysql.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="#">Clases de MySQL</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Article 1     -->
-                    <div class="col s12">
-                        <div class="card hoverable horizontal">
-                            <div class="card-image img-header">
-                                <a href="#"><img src="img/medium/html_css.png"></a>
-                            </div>
-                            <div class="card-article card-stacked col s9">
-                                <div class="card-content">
-                                    <h4><a href="#">Curso HTML 5 y CSS3</a></h4>
-                                    <div class="row date-badge">
-                                        <span class="col new badge valign-wrapper" data-badge-caption="">10 NOV</span>
-                                        <span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>
-                                    </div>
-                                    <hr>
-                                    <p class="truncate">I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information. I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <?php
+                    //Statement thread
+                    $records = $db->query("SELECT A.id, A.fecha, A.titulo, A.articulo, U.nombre , I.path AS ruta
+                                            FROM Articulos A 
+                                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                            LEFT JOIN Imagenes I ON A.idImg = I.id
+                                            ORDER BY A.fecha DESC LIMIT 10");
+                        
+                    // echo "<pre>"; var_dump($records,mysqli_error($db)); die();
+                    foreach ($records as $v){
+                        
+                        //formatter date
+                        $date = new DateTime($v['fecha']);
+                        //format date
+                        setlocale(LC_TIME, "es_ES");
+                        $dateFormatte = ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y'))));
+                        
+                        echo ('<div class="col s12">');
+                            echo ('<div class="card hoverable horizontal">');
+                                echo ('<div class="card-image img-header">');
+                                    echo ('<a href="article.php?id='.$v["id"].'" ><img src="img/medium/'.$v["ruta"].'"></a>');
+                                echo ('</div>');
+                                echo ('<div class="card-article card-stacked col s9">');
+                                    echo ('<div class="card-content">');
+                                        echo ('<h4 class="truncate"><a href="article.php?id='.$v["id"].'">'.strtoupper($v["titulo"]).'</a></h4>');
+                                        echo ('<div class="row date-badge">');
+                                            echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.substr($dateFormatte, 0, 6).'</span>');
+                                            echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
+                                        echo ('</div>');
+                                        echo ('<hr>');
+                                        echo ('<p class="truncate">'.$v["articulo"].'</p>');
+                                    echo ('</div>');
+                                echo ('</div>');
+                            echo ('</div>');
+                        echo ('</div>');
+                    }
+                ?>
                     <!-- BUTTON MORE -->
                     <div class="button-more">
                         <a class="waves-effect grey darken-3 btn">Mostrar Más</a>

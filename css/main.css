@@ -35,6 +35,8 @@
       font-size: 100%; }
       .left-side .card .card-article .card-content .date-badge .badge p {
         text-align: center !important; }
+    .left-side .card .card-article .card-content p {
+      margin-top: 1em; }
   .left-side .card .card-article .truncate {
     max-width: 100%;
     display: -moz-box; }
@@ -46,6 +48,8 @@
   .left-side .card hr {
     margin-top: 15px;
     border-top: none; }
+  .left-side .card pre {
+    display: none; }
 
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
