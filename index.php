@@ -40,14 +40,22 @@
                     <div class="content-card">
                         <!-- Grey navigation panel -->
                         <?php
+                            $showLimit = 1;
+                            
                             //Statement thread
-                            $records = $db->query("SELECT A.id, A.fecha, A.titulo, A.articulo, U.nombre , I.path AS ruta
+                            $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
                                                     FROM Articulos A 
                                                     LEFT JOIN Usuarios U ON A.idUsuario = U.id 
                                                     LEFT JOIN Imagenes I ON A.idImg = I.id
-                                                    ORDER BY A.fecha DESC LIMIT 5");
+                                                    WHERE A.preview = 0
+                                                    ORDER BY A.fecha";
+                            
+                            //Statement thread and concatenate LIMIT 
+                            $records = $db->query($query. " DESC LIMIT ".$showLimit);
+                            
+                            //Conteo total de registros
+                            $recordCount = $db->query($query)->num_rows;
                                 
-                            // echo "<pre>"; var_dump($records,mysqli_error($db)); die();
                             foreach ($records as $v){
                                 
                                 //formatter date
@@ -56,16 +64,16 @@
                                 setlocale(LC_TIME, "es_ES");
                                 $dateFormatte = ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y'))));
                                 
-                                echo ('<div class="card-data col s12">');
+                                echo ('<div class="col s12">');
                                     echo ('<div class="card hoverable horizontal">');
                                         echo ('<div class="card-image img-header">');
                                             echo ('<a href="article.php?id='.$v["id"].'" ><img src="img/medium/'.$v["ruta"].'"></a>');
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
                                             echo ('<div class="card-content">');
-                                                echo ('<h4 class="truncate"><a href="article.php?id='.$v["id"].'">'.strtoupper($v["id"] .' '. $v["titulo"]).'</a></h4>');
+                                                echo ('<h4 class="truncate"><a href="article.php?id='.$v["id"].'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
                                                 echo ('<div class="row date-badge">');
-                                                    echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.substr($dateFormatte, 0, 6).'</span>');
+                                                    echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                                                     echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
                                                 echo ('</div>');
                                                 echo ('<hr>');
@@ -77,16 +85,14 @@
                                 
                                 $last_id = $v['id'];
                             }
-                            
-                            echo ('<div class="button-more clearfix">');
-                                echo ('<a onclick="loadMoreCard('.$last_id.')" class="waves-effect grey darken-3 btn btn-more-cards">Mostrar Más</a>');
-                            echo ('</div>');
+                            //Si el conteo total de registro en la db es mayor a lo que se debe mostrar ($showLimit), entonces se mostrará el botón de "Cargar"
+                            if($recordCount > $showLimit){
+                                echo ('<div class="button-more clearfix">');
+                                    echo ('<a onclick="loadMoreCard('.$last_id.')" class="waves-effect grey darken-3 btn btn-more-cards">Mostrar Más</a>');
+                                echo ('</div>');
+                            }    
                         ?>
                     </div>
-                    
-                    <!-- <div class="progress clearfix" style="display:none; margin-top:50px;">
-                        <div class="indeterminate"></div>
-                    </div> -->
                     <div class="loading center" style="display: none; width: 100px; margin: 0 auto;">
                         <img style="height: 100px;" src="img/big/loading_2.svg" alt="">
                     </div>

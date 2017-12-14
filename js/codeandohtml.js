@@ -135,7 +135,7 @@ var loadMoreCard = function(last_id){
         url: "php/load-cards.php",
         data: {"last_id":last_id},
         beforeSend: function(){
-            $(".loading").show(400);
+            $(".loading").slideDown(400);
             // $("#preview-article").slideUp(400);
         },
         complete: function(){
@@ -147,6 +147,7 @@ var loadMoreCard = function(last_id){
             
             setTimeout(function() {
                 $(".content-card").append(data);
+                $('.card-data').fadeIn(1000);
                 $(".loading").hide();
             }, 1000);
             
