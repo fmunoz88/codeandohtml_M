@@ -1,5 +1,6 @@
 <?php 
-    include_once('../config/conexion.php');
+    include_once '../config/config.php';
+    include_once '../config/conexion.php';
     $db = db_connect();
 ?>
 <!DOCTYPE html>
@@ -24,11 +25,11 @@
         <header>
             <nav class="ambar">
                 <div class="nav-wrapper container">
-                    <a href="../index.php" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
+                    <a href="<?php echo SERVERURL; ?>" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- <li><a href="sass.html">Sass</a></li> -->
-                        <li><a href="badges.html">Acerca de</a></li>
-                        <li><a href="collapsible.html">Contacto</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Contacto</a></li>
                     </ul>
                 </div>
             </nav>

@@ -1,4 +1,5 @@
 <?php
+    include_once '../config/config.php';
     include_once "../config/conexion.php";
     $db = db_connect();
     
@@ -32,11 +33,11 @@
         echo ('<div class="card-data col s12">');
             echo ('<div class="card hoverable horizontal">');
                 echo ('<div class="card-image img-header">');
-                    echo ('<a href="article.php?id='.$v["id"].'" ><img src="img/medium/'.$v["ruta"].'"></a>');
+                    echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
                 echo ('</div>');
                 echo ('<div class="card-article card-stacked col s9">');
                     echo ('<div class="card-content">');
-                        echo ('<h4 class="truncate"><a href="article.php?id='.$v["id"].'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
+                        echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
                         echo ('<div class="row date-badge">');
                             echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                             echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');

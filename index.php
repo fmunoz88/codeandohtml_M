@@ -1,4 +1,5 @@
 <?php 
+    include_once 'config/config.php';
     include_once 'config/conexion.php';
     $db = db_connect();
 ?>
@@ -7,13 +8,13 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo SERVERURL; ?>css/materialize.min.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -24,9 +25,9 @@
                     <a href="#" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- <li><a href="sass.html">Sass</a></li> -->
-                        <li><a href="badges.html">Acerca de</a></li>
-                        <li><a href="collapsible.html">Contacto</a></li>
-                        <li><a href="src/add-article.php">Nuevo Artículo</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="src/add-article">Nuevo Artículo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -40,7 +41,7 @@
                     <div class="content-card">
                         <!-- Grey navigation panel -->
                         <?php
-                            $showLimit = 1;
+                            $showLimit = 2;
                             
                             //Statement thread
                             $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
@@ -67,11 +68,11 @@
                                 echo ('<div class="col s12">');
                                     echo ('<div class="card hoverable horizontal">');
                                         echo ('<div class="card-image img-header">');
-                                            echo ('<a href="article.php?id='.$v["id"].'" ><img src="img/medium/'.$v["ruta"].'"></a>');
+                                            echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
                                             echo ('<div class="card-content">');
-                                                echo ('<h4 class="truncate"><a href="article.php?id='.$v["id"].'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
+                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
                                                 echo ('<div class="row date-badge">');
                                                     echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                                                     echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
@@ -104,11 +105,11 @@
                         <div class="col s12 ">
                             <h5 class="">Lo más visto</h5>
                             <div class="collection">
-                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
-                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
-                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="<?php echo SERVERURL; ?>img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
+                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="<?php echo SERVERURL; ?>img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
+                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="<?php echo SERVERURL; ?>img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="<?php echo SERVERURL; ?>img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="<?php echo SERVERURL; ?>img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +229,7 @@
         </footer>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/codeandohtml.js"></script>
+        <script type="text/javascript" src="<?php echo SERVERURL; ?>js/materialize.min.js"></script>
+        <script type="text/javascript" src="<?php echo SERVERURL; ?>js/codeandohtml.js"></script>
     </body>
 </html>

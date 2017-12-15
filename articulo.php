@@ -1,10 +1,14 @@
 <?php 
+    include_once 'config/config.php';
     include_once 'libs/Parsedown.php';
     include 'config/conexion.php';
+    // echo "<pre>"; var_dump("-> GET: ",$_GET); die();
     $db = db_connect();
-    $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$_GET['id'];
+    
+    $id = (int) $_GET['id'];
+    $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$id;
+    
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,25 +16,25 @@
         <title>Exportar en el gridview en Yii2</title>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo SERVERURL; ?>css/materialize.min.css"  media="screen,projection"/>
         <!-- prims Monokai -->
-        <link href="css/prism_monokai.css" rel="stylesheet" />
+        <link href="<?php echo SERVERURL; ?>css/prism_monokai.css" rel="stylesheet" />
     </head>
     <body>
         <header>
             <nav class="ambar">
                 <div class="nav-wrapper container">
-                    <a href="index.php" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
+                    <a href="<?php echo SERVERURL; ?>" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- <li><a href="sass.html">Sass</a></li> -->
-                        <li><a href="badges.html">Acerca de</a></li>
-                        <li><a href="collapsible.html">Contacto</a></li>
-                        <li><a href="src/add-article.php">Nuevo Artículo</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="src/add-article">Nuevo Artículo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -62,7 +66,7 @@
                                 echo ('<div class="author-article">');
                                     echo ('<span><i>publicado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
                                     echo ('<div class="chip ">');
-                                    echo ('<img class=""src="img/medium/fabian.png" alt="Contact Person">');
+                                    echo ('<img class=""src="'.SERVERURL.'img/medium/fabian.png" alt="Contact Person">');
                                         echo ('<a class="" href="#">Por Fabián Muñoz</a>');
                                     echo ('</div>');
                                 echo ('</div>');
@@ -98,11 +102,11 @@
                         <div class="col s12 ">
                             <h5 class="">Lo más visto</h5>
                             <div class="collection">
-                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
-                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
-                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="<?php echo SERVERURL; ?>img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
+                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="<?php echo SERVERURL; ?>img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
+                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="<?php echo SERVERURL; ?>img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="<?php echo SERVERURL; ?>img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
+                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="<?php echo SERVERURL; ?>img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
                             </div>
                         </div>
                     </div>
