@@ -41,7 +41,7 @@
                     <div class="content-card">
                         <!-- Grey navigation panel -->
                         <?php
-                            $showLimit = 2;
+                            $showLimit = 10;
                             
                             //Statement thread
                             $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
@@ -49,10 +49,10 @@
                                                     LEFT JOIN Usuarios U ON A.idUsuario = U.id 
                                                     LEFT JOIN Imagenes I ON A.idImg = I.id
                                                     WHERE A.preview = 0
-                                                    ORDER BY A.fecha";
+                                                    ORDER BY A.fecha DESC ";
                             
                             //Statement thread and concatenate LIMIT 
-                            $records = $db->query($query. " DESC LIMIT ".$showLimit);
+                            $records = $db->query($query. " LIMIT ".$showLimit);
                             
                             //Conteo total de registros
                             $recordCount = $db->query($query)->num_rows;
@@ -72,7 +72,7 @@
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
                                             echo ('<div class="card-content">');
-                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
+                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v["titulo"]).'</a></h4>');
                                                 echo ('<div class="row date-badge">');
                                                     echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                                                     echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
@@ -105,11 +105,25 @@
                         <div class="col s12 ">
                             <h5 class="">Lo más visto</h5>
                             <div class="collection">
-                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="<?php echo SERVERURL; ?>img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
-                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="<?php echo SERVERURL; ?>img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
-                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="<?php echo SERVERURL; ?>img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="<?php echo SERVERURL; ?>img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="<?php echo SERVERURL; ?>img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
+                                <?php 
+                                    //Obtener los artículos más visto ordenados por vistas
+                                    $showLimitV = 5;
+                                    
+                                    //Statement thread
+                                    $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
+                                                            FROM Articulos A 
+                                                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                                            LEFT JOIN Imagenes I ON A.idImg = I.id
+                                                            WHERE A.preview = 0
+                                                            ORDER BY A.vistas DESC LIMIT ".$showLimitV;
+                                    
+                                    //Statement thread and concatenate LIMIT 
+                                    $records = $db->query($query);
+                                    
+                                    foreach ($records as $v) {
+                                        echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>

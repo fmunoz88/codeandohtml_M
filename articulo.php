@@ -1,12 +1,15 @@
 <?php 
     include_once 'config/config.php';
     include_once 'libs/Parsedown.php';
+    include_once 'php/vistas-articulos.php';
     include 'config/conexion.php';
     // echo "<pre>"; var_dump("-> GET: ",$_GET); die();
     $db = db_connect();
     
     $id = (int) $_GET['id'];
     $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$id;
+    //Actualizar vistas del artículo
+    actualizarVistas($db, $id);
     
 ?>
 <!DOCTYPE html>
@@ -34,7 +37,7 @@
                         <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="#">Acerca de</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="src/add-article">Nuevo Artículo</a></li>
+                        <li><a href="<?php echo SERVERURL; ?>src/add-article">Nuevo Artículo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -102,11 +105,25 @@
                         <div class="col s12 ">
                             <h5 class="">Lo más visto</h5>
                             <div class="collection">
-                                <a href="#!" class="truncate collection-item" title="Curso Framework Yii 2 con Bootstrap"><img src="<?php echo SERVERURL; ?>img/medium/php.png"><span class="truncate">Curso Framework Yii 2 con Bootstrap</span></a>
-                                <a href="#!" class="truncate collection-item" title="Sentencias MySQL"><img src="<?php echo SERVERURL; ?>img/medium/mysql.png"><span class="truncate">Sentencias MySQL</span></a>
-                                <a href="#!" class="truncate collection-item" title="Angular + React JS"><img src="<?php echo SERVERURL; ?>img/medium/angular.png"><span class="truncate">Angular + React JS</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso FrameworkDirectorios con Python"><img src="<?php echo SERVERURL; ?>img/medium/python.png"><span class="truncate">Directorios con Python</span></a>
-                                <a href="#!" class="truncate collection-item" title="Curso HTML5 + CSS3"><img src="<?php echo SERVERURL; ?>img/medium/html_css.png"><span class="truncate">Curso HTML5 + CSS3</span></a>
+                                <?php 
+                                    //Obtener los artículos más visto ordenados por vistas
+                                    $showLimitV = 5;
+                                    
+                                    //Statement thread
+                                    $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
+                                                            FROM Articulos A 
+                                                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                                            LEFT JOIN Imagenes I ON A.idImg = I.id
+                                                            WHERE A.preview = 0
+                                                            ORDER BY A.vistas DESC LIMIT ".$showLimitV;
+                                    
+                                    //Statement thread and concatenate LIMIT 
+                                    $records = $db->query($query);
+                                    
+                                    foreach ($records as $v) {
+                                        echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -226,8 +243,8 @@
         </footer>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="<?php echo SERVERURL; ?>js/materialize.min.js"></script>
         <!-- prims -->
-        <script src="js/prism_monokai.js"></script>
+        <script src="<?php echo SERVERURL; ?>js/prism_monokai.js"></script>
     </body>
 </html>

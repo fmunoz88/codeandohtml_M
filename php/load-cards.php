@@ -14,10 +14,10 @@
                             LEFT JOIN Usuarios U ON A.idUsuario = U.id 
                             LEFT JOIN Imagenes I ON A.idImg = I.id
                             WHERE A.id < $last_id AND A.preview = 0
-                            ORDER BY A.fecha";
+                            ORDER BY A.fecha DESC ";
     
     //Statement thread and concatenate LIMIT 
-    $records = $db->query($query. " DESC LIMIT ".$showLimit);
+    $records = $db->query($query. " LIMIT ".$showLimit);
     
     //Conteo total de registros
     $recordCount = $db->query($query)->num_rows;
@@ -37,7 +37,7 @@
                 echo ('</div>');
                 echo ('<div class="card-article card-stacked col s9">');
                     echo ('<div class="card-content">');
-                        echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v['id'].'-'.$v["titulo"]).'</a></h4>');
+                        echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v["titulo"]).'</a></h4>');
                         echo ('<div class="row date-badge">');
                             echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                             echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
