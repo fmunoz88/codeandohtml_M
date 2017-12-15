@@ -1,5 +1,6 @@
 <?php 
     include_once('../config/conexion.php');
+    include_once('../php/funciones.php');
     $db = db_connect();
     
     header("Content-Type:text/html; charset=utf-8");
@@ -57,6 +58,10 @@
             	$row = mysqli_fetch_assoc($resultID);
                 $id = $row['id'];
             }
+            
+            //actualizar el conteo de tags
+            actualizarConteoTags($db, $tags);
+            
             
             header('Content-Type: application/json');
             echo json_encode(array(

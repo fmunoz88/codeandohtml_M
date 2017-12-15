@@ -45,11 +45,11 @@
                             
                             //Statement thread
                             $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
-                                                    FROM Articulos A 
-                                                    LEFT JOIN Usuarios U ON A.idUsuario = U.id 
-                                                    LEFT JOIN Imagenes I ON A.idImg = I.id
-                                                    WHERE A.preview = 0
-                                                    ORDER BY A.fecha DESC ";
+                                        FROM Articulos A 
+                                        LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                        LEFT JOIN Imagenes I ON A.idImg = I.id
+                                        WHERE A.preview = 0
+                                        ORDER BY A.fecha DESC ";
                             
                             //Statement thread and concatenate LIMIT 
                             $records = $db->query($query. " LIMIT ".$showLimit);
@@ -111,13 +111,12 @@
                                     
                                     //Statement thread
                                     $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
-                                                            FROM Articulos A 
-                                                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
-                                                            LEFT JOIN Imagenes I ON A.idImg = I.id
-                                                            WHERE A.preview = 0
-                                                            ORDER BY A.vistas DESC LIMIT ".$showLimitV;
+                                                FROM Articulos A 
+                                                LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                                LEFT JOIN Imagenes I ON A.idImg = I.id
+                                                WHERE A.preview = 0
+                                                ORDER BY A.vistas DESC LIMIT ".$showLimitV;
                                     
-                                    //Statement thread and concatenate LIMIT 
                                     $records = $db->query($query);
                                     
                                     foreach ($records as $v) {
@@ -131,7 +130,19 @@
                     <div class="row tag-popular">
                         <div class="col s12 ">
                             <h5 class="">Tags populares</h5>
-                            <div class="chip"><a href="#">PHP</a></div>
+                            <?php 
+                                $showLimitT = 15;
+                                
+                                //Statement tags
+                                $query = "SELECT t.id, t.nombre FROM Tags t ORDER BY t.conteo DESC LIMIT ".$showLimitT;
+                                $records = $db->query($query);
+                                
+                                foreach ($records as $v) {
+                                    echo ('<div class="chip"><a href="#">'.$v['nombre'].'</a></div>');
+                                }
+                                
+                            ?>
+                            <!-- <div class="chip"><a href="#">PHP</a></div>
                             <div class="chip"><a href="#">MySQL</a></div>
                             <div class="chip"><a href="#">Yii Framework</a></div>
                             <div class="chip"><a href="#">Oracle</a></div>
@@ -145,7 +156,7 @@
                             <div class="chip"><a href="#">.NET</a></div>
                             <div class="chip"><a href="#">Python</a></div>
                             <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">Java</a></div>
+                            <div class="chip"><a href="#">Java</a></div> -->
                         </div>
                     </div>
                     <!-- Categories -->

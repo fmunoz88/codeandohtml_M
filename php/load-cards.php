@@ -10,11 +10,11 @@
     
     //Statement thread
     $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
-                            FROM Articulos A 
-                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
-                            LEFT JOIN Imagenes I ON A.idImg = I.id
-                            WHERE A.id < $last_id AND A.preview = 0
-                            ORDER BY A.fecha DESC ";
+                FROM Articulos A 
+                LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                LEFT JOIN Imagenes I ON A.idImg = I.id
+                WHERE A.id < $last_id AND A.preview = 0
+                ORDER BY A.fecha DESC ";
     
     //Statement thread and concatenate LIMIT 
     $records = $db->query($query. " LIMIT ".$showLimit);

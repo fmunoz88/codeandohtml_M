@@ -1,7 +1,7 @@
 <?php 
     include_once 'config/config.php';
     include_once 'libs/Parsedown.php';
-    include_once 'php/vistas-articulos.php';
+    include_once 'php/funciones.php';
     include 'config/conexion.php';
     // echo "<pre>"; var_dump("-> GET: ",$_GET); die();
     $db = db_connect();
@@ -111,17 +111,17 @@
                                     
                                     //Statement thread
                                     $query = "SELECT A.id, A.fecha, A.titulo, SUBSTRING(A.articulo, 1, 100) AS articulo, U.nombre , I.path AS ruta
-                                                            FROM Articulos A 
-                                                            LEFT JOIN Usuarios U ON A.idUsuario = U.id 
-                                                            LEFT JOIN Imagenes I ON A.idImg = I.id
-                                                            WHERE A.preview = 0
-                                                            ORDER BY A.vistas DESC LIMIT ".$showLimitV;
+                                                FROM Articulos A 
+                                                LEFT JOIN Usuarios U ON A.idUsuario = U.id 
+                                                LEFT JOIN Imagenes I ON A.idImg = I.id
+                                                WHERE A.preview = 0
+                                                ORDER BY A.vistas DESC LIMIT ".$showLimitV;
                                     
                                     //Statement thread and concatenate LIMIT 
                                     $records = $db->query($query);
                                     
                                     foreach ($records as $v) {
-                                        echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
+                                        echo ('<a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
                                     }
                                 ?>
                             </div>
