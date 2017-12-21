@@ -12,6 +12,14 @@
   box-shadow: none; }
   .left-side .card .img-header {
     width: 160px !important; }
+  .left-side .card .card-article .btn-edit {
+    position: absolute;
+    right: 0;
+    margin: 10px; }
+  .left-side .card .card-article .btn-delete {
+    position: absolute;
+    right: 0;
+    margin: 62px 10px 0; }
   .left-side .card .card-article .card-content {
     padding: 0;
     max-height: 300px; }

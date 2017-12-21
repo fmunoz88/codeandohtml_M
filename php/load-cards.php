@@ -36,6 +36,10 @@
                     echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
                 echo ('</div>');
                 echo ('<div class="card-article card-stacked col s9">');
+                    if(ADMIN){
+                        echo ('<a href="src/edit-article/'.$v["id"].'" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
+                        echo ('<button id="delete" class="btn-delete btn btn-floating btn-small blue waves-effect"><i class="material-icons">delete</i></button>');
+                    }
                     echo ('<div class="card-content">');
                         echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v["titulo"]).'</a></h4>');
                         echo ('<div class="row date-badge">');

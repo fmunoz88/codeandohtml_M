@@ -16,11 +16,12 @@ section.grid
             padding: 10px 10px
             color: $c_paragraph
             text-align: justify
+            font-size: 110% 
                 
             h3.title-article 
                 color: $c_title 
                 text-align: center
-                font-size: 400%
+                font-size: 350%
                 font-weight: 500
             
             h4.subtitle-article 
@@ -29,7 +30,7 @@ section.grid
                 text-align: center
                 
             p 
-                font-size: 130% 
+                // font-size: 110% 
                 
                 img
                     max-width: 100%
@@ -45,17 +46,55 @@ section.grid
             blockquote
                 background: $c_black_l
                 border-left: 5px solid $c_ambar
-                font-size: 14px
+                font-size: 100%
+                font-style: italic
+                color: #D5D5D5
+                padding-left: 2rem !important
+                // padding: 0 4px
                 
-            p code 
-                border: 1px solid $c_black_d
-                background: $c_black_l
-                padding: 3px
-                border-radius: 3px
-                font-size: 14px
-                border-radius: 3px
-            
-        
+            p 
+                code 
+                    border: 1px solid $c_black_d
+                    background: $c_black_l
+                    padding: 3px
+                    border-radius: 3px
+                    font-size: 14px
+                    border-radius: 3px
+                    padding: 3px 11px
+                    font-size: 100%
+                    margin: 0 4px
+                
+            pre
+                background: $c_black_d
+                padding: 1em
+                    
+                
+            //Tables
+            table
+                thead
+                    color: $c_ambar
+                // display: block
+                border: 1px solid $c_black_l
+                
+                th
+                    border: 1px solid $c_black_l
+                td
+                    border: 1px solid $c_black_l
+                
+                tr:nth-child(2n) 
+                    background-color: $c_black_l
+                    
+                code
+                    border: 1px solid $c_black_d
+                    background: $c_black_l
+                    padding: 3px
+                    border-radius: 3px
+                    font-size: 14px
+                    border-radius: 3px
+                    padding: 3px 11px
+                    font-size: 100%
+                    margin: 0 4px
+
         .tag-article 
             padding: 10px 10px
             

@@ -1,13 +1,14 @@
 <?php 
     include_once 'config/config.php';
     include_once 'config/conexion.php';
+    include_once 'php/funciones.php';
     $db = db_connect();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Codeando HTML</title>
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">
         <!--Import Google Icon Font-->
@@ -24,10 +25,13 @@
                 <div class="nav-wrapper container">
                     <a href="#" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="#">Acerca de</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="src/add-article">Nuevo Artículo</a></li>
+                        <?php 
+                            if(ADMIN){
+                                echo ('<li><a href="src/add-article">Nuevo Artículo</a></li>');
+                            }
+                        ?>
                     </ul>
                 </div>
             </nav>
@@ -68,17 +72,21 @@
                                 echo ('<div class="col s12">');
                                     echo ('<div class="card hoverable horizontal">');
                                         echo ('<div class="card-image img-header">');
-                                            echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
+                                            echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
+                                            if(ADMIN){
+                                                echo ('<a href="src/edit-article/'.$v["id"].'" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
+                                                echo ('<button id="delete" class="btn-delete btn btn-floating btn-small blue waves-effect"><i class="material-icons">delete</i></button>');
+                                            }
                                             echo ('<div class="card-content">');
-                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'">'.strtoupper($v["titulo"]).'</a></h4>');
+                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'">'.strtoupper($v["titulo"]).'</a></h4>');
                                                 echo ('<div class="row date-badge">');
                                                     echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                                                     echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
                                                 echo ('</div>');
                                                 echo ('<hr>');
-                                                echo ('<p class="truncate">'.$v["articulo"].'</p>');
+                                                echo ('<p class="truncate">'.htmlspecialchars($v["articulo"]).'</p>');
                                             echo ('</div>');
                                         echo ('</div>');
                                     echo ('</div>');
@@ -120,7 +128,7 @@
                                     $records = $db->query($query);
                                     
                                     foreach ($records as $v) {
-                                        echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
+                                        echo ('<a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
                                     }
                                 ?>
                             </div>
@@ -139,24 +147,8 @@
                                 
                                 foreach ($records as $v) {
                                     echo ('<div class="chip"><a href="#">'.$v['nombre'].'</a></div>');
-                                }
-                                
+                                }    
                             ?>
-                            <!-- <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">MySQL</a></div>
-                            <div class="chip"><a href="#">Yii Framework</a></div>
-                            <div class="chip"><a href="#">Oracle</a></div>
-                            <div class="chip"><a href="#">.NET</a></div>
-                            <div class="chip"><a href="#">Python</a></div>
-                            <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">Android</a></div>
-                            <div class="chip"><a href="#">MySQL</a></div>
-                            <div class="chip"><a href="#">Yii Framework</a></div>
-                            <div class="chip"><a href="#">Oracle</a></div>
-                            <div class="chip"><a href="#">.NET</a></div>
-                            <div class="chip"><a href="#">Python</a></div>
-                            <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">Java</a></div> -->
                         </div>
                     </div>
                     <!-- Categories -->

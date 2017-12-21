@@ -16,8 +16,12 @@ $("#btnSave").click(function(){
 
     var title = $("#titulo").val();
     var content = $(".editormd-markdown-textarea").val();
+    var url = $("#urlBase").val();
+    var id_img = $("#path_img").val();
+    //Obtener tags seleccionado
+    var tagsObj = getTagsByTag();
 
-    if(validate(title, content)){
+    if(validate(title, content, id_img, tagsObj.length)){
         MaterialDialog.dialog("¿Desea publicar este artículo? <br> - Quedará pendiente de revisón por un Administrador.", {
             title:"Confirmación",
             modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
@@ -36,7 +40,7 @@ $("#btnSave").click(function(){
                     modalClose:true,
                     callback:function(){
                         $("#save_exit").val(1);
-                        saveArticle(0,$("#preview_id").val());
+                        saveArticle(0, $("#article_id").val(), url, $("#preview_id").val());
                     }
                 }
             }
@@ -46,16 +50,20 @@ $("#btnSave").click(function(){
 });
 
 $("#btnPreview").click(function(){
+    var url = $("#urlBase").val();
+    var article_id = $("#article_id").val();
     var preview_id = $("#preview_id").val();
-    saveArticle(1,preview_id);
+    saveArticle(1, article_id, url, preview_id);
 });
 
-function saveArticle(preview,id){
+function saveArticle(preview,id, url, preview_id){
     
     var title = $("#titulo").val();
     var subtitle = $("#subtitulo").val();
     var content = $(".editormd-markdown-textarea").val();
     var id_img = $("#path_img").val();
+    
+    var urlInsert = url + "php/insert-article.php";
     
     //Obtener tags seleccionado
     var tagsObj = getTagsByTag();
@@ -63,8 +71,8 @@ function saveArticle(preview,id){
     if(validate(title, content, id_img, tagsObj.length)){
         $.ajax({
             type: 'POST',
-            url: "../php/insert-article.php",
-            data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview,"id_img":id_img,"tags":tagsObj},
+            url: urlInsert,
+            data: {"titulo":title,"subtitulo":subtitle,"contenido":content,"id":id,"preview":preview,"id_img":id_img,"tags":tagsObj,"idPreview":preview_id},
             beforeSend: function(){
                 $(".loading").slideDown(400);
                 $("#preview-article").slideUp(400);
@@ -77,15 +85,15 @@ function saveArticle(preview,id){
                 if(data.success){
                     //Si se retorna el ID y el valor preview == 1, quiere decir que es un preview
                     if(data.id && data.preview == 1){
-                        console.log(data.id)
-                        $("#preview-article").load("preview.php?id=" + data.id );
-                        $("#preview_id").val(data.id);
+                        $("#preview-article").load(url+"src/preview.php/" + data.idPreview);
+                        $("#article_id").val(data.id);
+                        $("#preview_id").val(data.idPreview);
                     }else{ //De lo contrario sólo redireccionará a la página principal
                         console.log("TODO OK...");
-                        $(location).attr('href','../index.php');
+                        $(location).attr('href',url+'index.php');
                     }
                 }else{
-                    console.log(data.message)
+                    console.log(data.message);
                 }
             }
         });    

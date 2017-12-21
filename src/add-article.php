@@ -11,15 +11,15 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- Mine Styles -->
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../markdown/css/editormd.css" />
-        <link rel="stylesheet" href="../css/markdown.css" />
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>libs/markdown/css/editormd.css" />
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/markdown.css" />
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/materialize.min.css" media="screen,projection"/>
         <!-- Fonts Google -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
     </head>
     <body>
         <header>
@@ -27,7 +27,6 @@
                 <div class="nav-wrapper container">
                     <a href="<?php echo SERVERURL; ?>" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="#">Acerca de</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
@@ -79,7 +78,7 @@
                                             $record = $db->query("SELECT id, path FROM Imagenes WHERE tipo = 1");
                                             
                                             foreach ($record as $v) {
-                                                echo ('<li> <a href="#"> <img id="'.$v['id'].'" src="../img/medium/'.$v['path'].'" alt=""> </a> </li>');    
+                                                echo ('<li> <a href="#"> <img id="'.$v['id'].'" src="'.SERVERURL.'img/medium/'.$v['path'].'" alt=""> </a> </li>');    
                                             }
                                         ?>
                                     </ol>
@@ -120,6 +119,7 @@
         </section>
         <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
         <input type="hidden" name="" id="save_exit" value="">
+        <input type="hidden" name="" id="urlBase" value="<?php echo SERVERURL; ?>">
         <!-- Footer -->
         <footer>
             <ul class="social">
@@ -138,11 +138,11 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!-- <script type="text/javascript" src="../js/materialize.min.js"></script> -->
-        <script type="text/javascript" src="../js/materialize.js"></script>
-        <script src="../js/material-dialog.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="../markdown/js/editormd.min.js"></script>
-        <script src="../markdown/js/languages/en.js"></script>
-        <script src="../js/codeandohtml.js"></script>
+        <script src="<?php echo SERVERURL; ?>js/materialize.js"></script>
+        <script src="<?php echo SERVERURL; ?>js/material-dialog.min.js" type="text/javascript"></script>
+        <script src="<?php echo SERVERURL; ?>libs/markdown/js/editormd.js"></script>
+        <script src="<?php echo SERVERURL; ?>libs/markdown/js/languages/en.js"></script>
+        <script src="<?php echo SERVERURL; ?>js/codeandohtml.js"></script>
         
         <script type="text/javascript">
             var testEditor;
@@ -152,7 +152,7 @@
                     width   : "90%",
                     height  : 640,
                     syncScrolling : "single",
-                    path    : "../markdown/lib/",
+                    path    : "<?php echo SERVERURL; ?>libs/markdown/lib/",
                     // emoji : true
                 });
             });
@@ -168,7 +168,7 @@
                 $(function() {
                     $.ajax({
                         type: 'GET',
-                        url: '../php/tags.php',
+                        url: '<?php echo SERVERURL; ?>php/tags.php',
                         success: function(response) {
                             
                             $('.chips-autocomplete').material_chip({

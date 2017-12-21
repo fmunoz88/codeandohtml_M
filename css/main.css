@@ -21,6 +21,14 @@
   box-shadow: none; }
   .left-side .card .img-header {
     width: 160px !important; }
+  .left-side .card .card-article .btn-edit {
+    position: absolute;
+    right: 0;
+    margin: 10px; }
+  .left-side .card .card-article .btn-delete {
+    position: absolute;
+    right: 0;
+    margin: 62px 10px 0; }
   .left-side .card .card-article .card-content {
     padding: 0;
     max-height: 300px; }
@@ -144,19 +152,18 @@
 section.grid .left-side article {
   padding: 10px 10px;
   color: white;
-  text-align: justify; }
+  text-align: justify;
+  font-size: 110%; }
   section.grid .left-side article h3.title-article {
     color: #ffab40;
     text-align: center;
-    font-size: 400%;
+    font-size: 350%;
     font-weight: 500; }
   section.grid .left-side article h4.subtitle-article {
     color: #ffab40;
     text-align: center; }
-  section.grid .left-side article p {
-    font-size: 130%; }
-    section.grid .left-side article p img {
-      max-width: 100%; }
+  section.grid .left-side article p img {
+    max-width: 100%; }
   section.grid .left-side article pre {
     font-size: 0.9em; }
   section.grid .left-side article a {
@@ -164,14 +171,43 @@ section.grid .left-side article {
   section.grid .left-side article blockquote {
     background: #393939;
     border-left: 5px solid #ffab40;
-    font-size: 14px; }
+    font-size: 100%;
+    font-style: italic;
+    color: #D5D5D5;
+    padding-left: 2rem !important; }
   section.grid .left-side article p code {
     border: 1px solid #272822;
     background: #393939;
     padding: 3px;
     border-radius: 3px;
     font-size: 14px;
-    border-radius: 3px; }
+    border-radius: 3px;
+    padding: 3px 11px;
+    font-size: 100%;
+    margin: 0 4px; }
+  section.grid .left-side article pre {
+    background: #272822;
+    padding: 1em; }
+  section.grid .left-side article table {
+    border: 1px solid #393939; }
+    section.grid .left-side article table thead {
+      color: #ffab40; }
+    section.grid .left-side article table th {
+      border: 1px solid #393939; }
+    section.grid .left-side article table td {
+      border: 1px solid #393939; }
+    section.grid .left-side article table tr:nth-child(2n) {
+      background-color: #393939; }
+    section.grid .left-side article table code {
+      border: 1px solid #272822;
+      background: #393939;
+      padding: 3px;
+      border-radius: 3px;
+      font-size: 14px;
+      border-radius: 3px;
+      padding: 3px 11px;
+      font-size: 100%;
+      margin: 0 4px; }
 section.grid .left-side .tag-article {
   padding: 10px 10px; }
   section.grid .left-side .tag-article a {

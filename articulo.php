@@ -2,7 +2,7 @@
     include_once 'config/config.php';
     include_once 'libs/Parsedown.php';
     include_once 'php/funciones.php';
-    include 'config/conexion.php';
+    include_once 'config/conexion.php';
     // echo "<pre>"; var_dump("-> GET: ",$_GET); die();
     $db = db_connect();
     
@@ -34,10 +34,14 @@
                 <div class="nav-wrapper container">
                     <a href="<?php echo SERVERURL; ?>" class="brand-logo"><i class="fa fa-html5"></i>Codeando HTML</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <!-- <li><a href="sass.html">Sass</a></li> -->
                         <li><a href="#">Acerca de</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="<?php echo SERVERURL; ?>src/add-article">Nuevo Artículo</a></li>
+                        <?php 
+                            if(ADMIN){
+                                echo ('<li><a href="'.SERVERURL.'src/add-article">Nuevo Artículo</a></li>');
+                            }
+                        ?>
+                        <li>
                     </ul>
                 </div>
             </nav>
@@ -121,7 +125,7 @@
                                     $records = $db->query($query);
                                     
                                     foreach ($records as $v) {
-                                        echo ('<a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower($v['titulo'])).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
+                                        echo ('<a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'" class="truncate collection-item" title="'.$v['titulo'].'"><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"><span class="truncate">'.$v['titulo'].'</span></a>');
                                     }
                                 ?>
                             </div>
@@ -131,21 +135,17 @@
                     <div class="row tag-popular">
                         <div class="col s12 ">
                             <h5 class="">Tags populares</h5>
-                            <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">MySQL</a></div>
-                            <div class="chip"><a href="#">Yii Framework</a></div>
-                            <div class="chip"><a href="#">Oracle</a></div>
-                            <div class="chip"><a href="#">.NET</a></div>
-                            <div class="chip"><a href="#">Python</a></div>
-                            <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">Android</a></div>
-                            <div class="chip"><a href="#">MySQL</a></div>
-                            <div class="chip"><a href="#">Yii Framework</a></div>
-                            <div class="chip"><a href="#">Oracle</a></div>
-                            <div class="chip"><a href="#">.NET</a></div>
-                            <div class="chip"><a href="#">Python</a></div>
-                            <div class="chip"><a href="#">PHP</a></div>
-                            <div class="chip"><a href="#">Java</a></div>
+                            <?php 
+                                $showLimitT = 15;
+                                
+                                //Statement tags
+                                $query = "SELECT t.id, t.nombre FROM Tags t ORDER BY t.conteo DESC LIMIT ".$showLimitT;
+                                $records = $db->query($query);
+                                
+                                foreach ($records as $v) {
+                                    echo ('<div class="chip"><a href="#">'.$v['nombre'].'</a></div>');
+                                }    
+                            ?>
                         </div>
                     </div>
                     <!-- Categories -->

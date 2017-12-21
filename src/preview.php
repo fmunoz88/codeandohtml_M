@@ -1,22 +1,20 @@
 <?php 
+    include_once '../config/config.php';
     include_once '../libs/Parsedown.php';
-    include '../config/conexion.php';
+    include_once '../config/conexion.php';
     $db = db_connect();
-    
-    $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$_GET['id'];
+
+    $query = "SELECT a.titulo, a.fecha, a.articulo, a.tags FROM ArticulosPreview a WHERE id = ".$_GET['id'];
 ?>
-<!DOCTYPE html>
-<html>
     <head>
-        <meta charset="utf-8">
-        <title>Exportar en el gridview en Yii2</title>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- prims Monokai -->
-        <link href="../css/prism_monokai.css" rel="stylesheet" />
+        <link href="<?php echo SERVERURL; ?>css/prism_monokai.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
         <style media="screen">
             .preview-border { border: 1px solid #393939; }
-            .preview-article .container { width: 80%; }
+            #preview-article .container { width: 85%; }
         </style>
     </head>
     <body>
@@ -29,7 +27,7 @@
                         
                         <?php 
                             $parsedown = new Parsedown();
-                            // $record = $db->query("SELECT a.titulo, a.fecha, a.articulo, a.tags FROM Articulos a WHERE id = ".$_GET['id']." LIMIT 1");
+                            
                             $record = $db->query($query);
                             foreach ($record as $v) {
                                 
@@ -43,7 +41,7 @@
                                 echo ('<div class="author-article">');
                                     echo ('<span><i>publicado</i><b> '.ucwords(strftime("%d %B %G", strtotime($date->format('d-m-Y')))).'</b></span>');
                                     echo ('<div class="chip ">');
-                                    echo ('<img class=""src="../img/medium/fabian.png" alt="Contact Person">');
+                                    echo ('<img class=""src="'.SERVERURL.'img/medium/fabian.png" alt="Contact Person">');
                                         echo ('<a class="" href="#">Por Fabián Muñoz</a>');
                                     echo ('</div>');
                                 echo ('</div>');
@@ -74,6 +72,5 @@
             </div>
         </section>
         <!-- prims -->
-        <script src="../js/prism_monokai.js"></script>
+        <script src="<?php echo SERVERURL; ?>js/prism_monokai.js"></script>
     </body>
-</html>
