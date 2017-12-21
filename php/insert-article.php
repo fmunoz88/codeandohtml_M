@@ -52,7 +52,7 @@
         }else{
             // Validar si viene el ID del articulo, quiere decir que es un preview y se tiene que actualizar el registro
             if($id){
-                $sql = "UPDATE Articulos SET fecha = '".$fecha."', titulo = '".$titulo."', articulo = '".$articulo."', preview = '.$preview.', idImg = '.$idImg.', tags = '".$tagString."' WHERE id = ".$id;
+                $sql = "UPDATE Articulos SET titulo = '".$titulo."', articulo = '".$articulo."', preview = '.$preview.', idImg = '.$idImg.', tags = '".$tagString."' WHERE id = ".$id;
             }else { //Se ingresará el nuevo registro
                 $sql = "INSERT INTO Articulos (fecha,titulo,articulo,tags,preview,idImg,idUsuario,estatus) VALUES ('".$fecha."','".$titulo."','".$articulo."','".$tagString."', ".$preview.", ".$idImg.", 1,0)";
             }
