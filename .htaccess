@@ -8,3 +8,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^articulo.php/([0-9]+)/([0-9a-zA-Z_-]+)$ articulo?id=$1&title=$2 [NC,L]
 RewriteRule ^src/edit-article.php/([0-9]+)$ src/edit-article?id=$1 [NC,L]
 RewriteRule ^src/preview.php/([0-9]+)$ src/preview?id=$1 [NC,L]
+RewriteRule ^src/tags.php/([0-9]+)$ src/tags?id=$1 [NC,L]

@@ -37,7 +37,7 @@
     .left-side .card .card-article .card-content a:hover {
       color: #b2b2b; }
     .left-side .card .card-article .card-content h4 {
-      font-weight: bold;
+      font-weight: 500;
       font-size: 250%; }
     .left-side .card .card-article .card-content .date-badge a {
       color: #ffab40 !important; }
@@ -62,6 +62,18 @@
     border-top: none; }
   .left-side .card pre {
     display: none; }
+.left-side .tags .tag-title h2 {
+  font-weight: 500;
+  color: #ffab40;
+  font-size: 400%; }
+.left-side .tags .card .img-header {
+  width: 180px; }
+.left-side .tags .card .card-article hr {
+  margin-top: 16px; }
+.left-side .tags .no-data {
+  color: white;
+  text-align: center;
+  font-size: 80%; }
 
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
@@ -149,33 +161,33 @@
 /* ===================================================== */
 /* ================= Kraimoz Developer ================= */
 /* ===================================================== */
-section.grid .left-side article {
+section.grid .left-side article.articulo {
   padding: 10px 10px;
   color: white;
   text-align: justify;
   font-size: 110%; }
-  section.grid .left-side article h3.title-article {
+  section.grid .left-side article.articulo h3.title-article {
     color: #ffab40;
     text-align: center;
     font-size: 350%;
     font-weight: 500; }
-  section.grid .left-side article h4.subtitle-article {
+  section.grid .left-side article.articulo h4.subtitle-article {
     color: #ffab40;
     text-align: center; }
-  section.grid .left-side article p img {
+  section.grid .left-side article.articulo p img {
     max-width: 100%; }
-  section.grid .left-side article pre {
+  section.grid .left-side article.articulo pre {
     font-size: 0.9em; }
-  section.grid .left-side article a {
+  section.grid .left-side article.articulo a {
     word-wrap: break-word; }
-  section.grid .left-side article blockquote {
+  section.grid .left-side article.articulo blockquote {
     background: #393939;
     border-left: 5px solid #ffab40;
     font-size: 100%;
     font-style: italic;
     color: #D5D5D5;
     padding-left: 2rem !important; }
-  section.grid .left-side article p code {
+  section.grid .left-side article.articulo p code {
     border: 1px solid #272822;
     background: #393939;
     padding: 3px;
@@ -185,29 +197,32 @@ section.grid .left-side article {
     padding: 3px 11px;
     font-size: 100%;
     margin: 0 4px; }
-  section.grid .left-side article pre {
+  section.grid .left-side article.articulo pre {
     background: #272822;
     padding: 1em; }
-  section.grid .left-side article table {
+  section.grid .left-side article.articulo hr {
+    margin: 25px 0; }
+  section.grid .left-side article.articulo table thead {
+    color: #ffab40;
     border: 1px solid #393939; }
-    section.grid .left-side article table thead {
-      color: #ffab40; }
-    section.grid .left-side article table th {
-      border: 1px solid #393939; }
-    section.grid .left-side article table td {
-      border: 1px solid #393939; }
-    section.grid .left-side article table tr:nth-child(2n) {
-      background-color: #393939; }
-    section.grid .left-side article table code {
-      border: 1px solid #272822;
-      background: #393939;
-      padding: 3px;
-      border-radius: 3px;
-      font-size: 14px;
-      border-radius: 3px;
-      padding: 3px 11px;
-      font-size: 100%;
-      margin: 0 4px; }
+  section.grid .left-side article.articulo table th {
+    border: 1px solid #393939;
+    text-align: center; }
+  section.grid .left-side article.articulo table td {
+    border: 1px solid #393939;
+    text-align: center; }
+  section.grid .left-side article.articulo table tr:nth-child(2n) {
+    background-color: #393939; }
+  section.grid .left-side article.articulo table code {
+    border: 1px solid #272822;
+    background: #393939;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 3px 11px;
+    font-size: 100%;
+    margin: 0 4px; }
 section.grid .left-side .tag-article {
   padding: 10px 10px; }
   section.grid .left-side .tag-article a {

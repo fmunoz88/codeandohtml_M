@@ -28,7 +28,7 @@
     .left-side .card .card-article .card-content a:hover {
       color: #b2b2b; }
     .left-side .card .card-article .card-content h4 {
-      font-weight: bold;
+      font-weight: 500;
       font-size: 250%; }
     .left-side .card .card-article .card-content .date-badge a {
       color: #ffab40 !important; }
@@ -53,5 +53,17 @@
     border-top: none; }
   .left-side .card pre {
     display: none; }
+.left-side .tags .tag-title h2 {
+  font-weight: 500;
+  color: #ffab40;
+  font-size: 400%; }
+.left-side .tags .card .img-header {
+  width: 180px; }
+.left-side .tags .card .card-article hr {
+  margin-top: 16px; }
+.left-side .tags .no-data {
+  color: white;
+  text-align: center;
+  font-size: 80%; }
 
 /*# sourceMappingURL=card.css.map */

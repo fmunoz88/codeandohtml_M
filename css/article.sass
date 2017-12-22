@@ -12,7 +12,7 @@ section.grid
     
     .left-side 
         
-        article
+        article.articulo
             padding: 10px 10px
             color: $c_paragraph
             text-align: justify
@@ -67,19 +67,24 @@ section.grid
             pre
                 background: $c_black_d
                 padding: 1em
+                
+            hr
+                margin: 25px 0
                     
                 
             //Tables
             table
+                
                 thead
                     color: $c_ambar
-                // display: block
-                border: 1px solid $c_black_l
+                    border: 1px solid $c_black_l
                 
                 th
                     border: 1px solid $c_black_l
+                    text-align: center 
                 td
                     border: 1px solid $c_black_l
+                    text-align: center 
                 
                 tr:nth-child(2n) 
                     background-color: $c_black_l

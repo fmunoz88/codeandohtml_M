@@ -52,7 +52,7 @@
             <div class="row">
                 <!-- LEFT SIDE -->
                 <div class="left-side col s12  l9">
-                    <article class="">
+                    <article class="articulo">
                         
                         <?php 
                             //Leer desde la DB el artículo seleccionado
@@ -94,10 +94,11 @@
                             foreach($tags AS $k) {
                                 $tagID = (int) $k;
                                 
-                                $tagRecord = $db->query("SELECT t.nombre FROM Tags t WHERE t.id = ".$tagID);
+                                $tagRecord = $db->query("SELECT t.nombre, t.id FROM Tags t WHERE t.id = ".$tagID);
                                 $tagRow = mysqli_fetch_assoc($tagRecord);
                                 // echo "<pre>"; var_dump($tagRow['nombre']);
-                                echo ('<a class="hover_1" href="#">'.$tagRow['nombre'].'</a>');
+                                echo ('<a class="hover_1" href="'.SERVERURL.'src/tags.php/'.$tagRow['id'].'">'.$tagRow['nombre'].'</a>');
+                                // echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$tagRow['id'].'">'.$tagRow['nombre'].'</a></div>');
                             }
                         ?>
                     </div>
@@ -143,7 +144,7 @@
                                 $records = $db->query($query);
                                 
                                 foreach ($records as $v) {
-                                    echo ('<div class="chip"><a href="#">'.$v['nombre'].'</a></div>');
+                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$v['id'].'">'.$v['nombre'].'</a></div>');
                                 }    
                             ?>
                         </div>

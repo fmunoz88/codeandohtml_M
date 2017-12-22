@@ -55,10 +55,10 @@
         full : [
             "undo", "redo", "|", 
             "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", 
-            "h3", "h4", "h5", "h6", "|", 
+            "h4", "h5", "h6", "|", 
             "list-ul", "list-ol", "hr", "|",
-            "link", "reference-link", "image", "code", "preformatted-text","code-block", "table", "html-entities", "pagebreak", "|",
-            "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
+            "link", "reference-link", "image", "code", "preformatted-text","code-block", "table", "html-entities", "|",
+            "goto-line", "watch", "preview", "clear", "search", "|",
             "help", "info"
         ],
         simple : [

@@ -9,15 +9,15 @@
     <head>
         <meta charset="utf-8">
         <title>Codeando HTML</title>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">
         <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="<?php echo SERVERURL; ?>css/materialize.min.css"  media="screen,projection"/>
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <header>
@@ -72,15 +72,15 @@
                                 echo ('<div class="col s12">');
                                     echo ('<div class="card hoverable horizontal">');
                                         echo ('<div class="card-image img-header">');
-                                            echo ('<a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
+                                            echo ('<a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'" ><img src="'.SERVERURL.'img/medium/'.$v["ruta"].'"></a>');
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
                                             if(ADMIN){
-                                                echo ('<a href="src/edit-article/'.$v["id"].'" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
+                                                echo ('<a href="'.SERVERURL.'src/edit-article/'.$v["id"].'" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
                                                 echo ('<button id="delete" class="btn-delete btn btn-floating btn-small blue waves-effect"><i class="material-icons">delete</i></button>');
                                             }
                                             echo ('<div class="card-content">');
-                                                echo ('<h4 class="truncate"><a href="articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'">'.strtoupper($v["titulo"]).'</a></h4>');
+                                                echo ('<h4 class="truncate"><a href="'.SERVERURL.'articulo/'.$v["id"].'/'.str_replace(' ','-',strtolower(formatterTitle($v['titulo']))).'">'.strtoupper($v["titulo"]).'</a></h4>');
                                                 echo ('<div class="row date-badge">');
                                                     echo ('<span class="col new badge valign-wrapper" data-badge-caption="">'.strtoupper(substr($dateFormatte, 0, 6)).'</span>');
                                                     echo ('<span class="col s7 m8 l9"><a href="#">Fabián Muñoz Dev</a></span>');
@@ -146,7 +146,7 @@
                                 $records = $db->query($query);
                                 
                                 foreach ($records as $v) {
-                                    echo ('<div class="chip"><a href="#">'.$v['nombre'].'</a></div>');
+                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$v['id'].'">'.$v['nombre'].'</a></div>');
                                 }    
                             ?>
                         </div>

@@ -25,9 +25,15 @@
      */
     function actualizarConteoTags($db, $ids){
         
-        foreach($ids as $v){
-            $sql = "UPDATE Tags SET conteo = conteo + 1 WHERE id = ".$v;
-            $query = $db->query($sql);
+        //validar si es un array o un entero
+        if(is_numeric($ids)){ //Cuando buscan artículos por un Tag
+                $sql = "UPDATE Tags SET conteo = conteo + 1 WHERE id = ".$ids;
+                $query = $db->query($sql);
+        }else{ //Es un array cuando se llama desde el create de un artículo
+            foreach($ids as $v){
+                $sql = "UPDATE Tags SET conteo = conteo + 1 WHERE id = ".$v;
+                $query = $db->query($sql);
+            }
         }
         
     }

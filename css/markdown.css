@@ -72,6 +72,8 @@ header .alert-articles {
     height: inherit; }
   .add-article #test-editormd .editormd-dialog {
     min-width: 400px !important; }
+  .add-article #test-editormd .editormd-table-dialog {
+    height: auto !important; }
   .add-article #test-editormd .editormd-fullscreen {
     z-index: 9; }
   .add-article #test-editormd .editormd-form input[type="text"] {
