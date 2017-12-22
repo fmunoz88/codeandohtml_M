@@ -23,7 +23,7 @@
             <div class="row">
                 <!-- LEFT SIDE -->
                 <div class="left-side col s12 preview-border">
-                    <article class="">
+                    <article class="articulo">
                         
                         <?php 
                             $parsedown = new Parsedown();

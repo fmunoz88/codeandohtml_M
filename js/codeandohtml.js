@@ -64,7 +64,7 @@ function saveArticle(preview,id, url, preview_id){
     var id_img = $("#path_img").val();
     
     var urlInsert = url + "php/insert-article.php";
-    
+    // console.log(url, urlInsert); return false;
     //Obtener tags seleccionado
     var tagsObj = getTagsByTag();
     
@@ -84,7 +84,7 @@ function saveArticle(preview,id, url, preview_id){
             success: function(data){
                 if(data.success){
                     //Si se retorna el ID y el valor preview == 1, quiere decir que es un preview
-                    if(data.id && data.preview == 1){
+                    if((data.id || data.idPreview) && data.preview == 1){
                         $("#preview-article").load(url+"src/preview.php/" + data.idPreview);
                         $("#article_id").val(data.id);
                         $("#preview_id").val(data.idPreview);

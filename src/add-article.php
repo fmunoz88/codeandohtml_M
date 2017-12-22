@@ -49,7 +49,7 @@
                 <!-- RIGHT SIDE -->
                 <div class="right-side col s12  l12">
                     <div class="row form-wrapper">
-                        <form method="post" action="../inc/insert-article.php" class="col s12">
+                        <form method="post" class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>
@@ -117,7 +117,8 @@
                 <div id="preview-article"></div>
             </div>
         </section>
-        <input type="hidden" name="" id="preview_id" value="<?php echo $_GET['id']; ?>">
+        <input type="hidden" name="" id="article_id" value="<?php echo $_GET['id']; ?>">
+        <input type="hidden" name="" id="preview_id" value="">
         <input type="hidden" name="" id="save_exit" value="">
         <input type="hidden" name="" id="urlBase" value="<?php echo SERVERURL; ?>">
         <!-- Footer -->

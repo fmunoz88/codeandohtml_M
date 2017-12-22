@@ -50,7 +50,7 @@
                 $sql = "INSERT INTO ArticulosPreview (fecha,titulo,articulo,tags,preview,idImg,idUsuario,estatus) VALUES ('".$fecha."','".$titulo."','".$articulo."','".$tagString."', ".$preview.", ".$idImg.", 1,0)";
             }
         }else{
-            // Validar si viene el ID del articulo, quiere decir que es un preview y se tiene que actualizar el registro
+            // Validar si viene el ID del articulo, quiere decir que se está EDITANDO un artículo y se tiene que actualizar el registro
             if($id){
                 $sql = "UPDATE Articulos SET titulo = '".$titulo."', articulo = '".$articulo."', preview = '.$preview.', idImg = '.$idImg.', tags = '".$tagString."' WHERE id = ".$id;
             }else { //Se ingresará el nuevo registro
@@ -64,20 +64,24 @@
 
         if($query){//Validar si se ejecutó correctamente la sentencia
 
-            if(!$idPreview){ 
+            if(!$idPreview){ //Si no viene el idPreview, quiere decir es la primera vez que se llama el "Preview"
                 $resultID = $db->query("SELECT MAX(id) AS id FROM ArticulosPreview");
             	$row = mysqli_fetch_assoc($resultID);
                 $idPreview = $row['id'];
             }
             
-            if(!$preview && $idPreview){ //Si viene un $idPreview y $preview es false, se eliminará ese registro ya que se terminó la edición
-                $query = "DELETE FROM ArticulosPreview WHERE id = " . $idPreview;
-                $db->query($query);
+            // Fin Edición
+            if(!$preview){ 
+                //actualizar el conteo de tags
+                //No es vital validar si se realiza correctamente conteo de los tags
+                actualizarConteoTags($db, $tags);
+                
+                if($idPreview){ //Si viene un $idPreview, significa que existe un registro creado en el preview y se eliminará ya que se terminó la edición
+                    $query = "DELETE FROM ArticulosPreview WHERE id = " . $idPreview;
+                    $db->query($query);
+                }
+                
             }
-            
-            //actualizar el conteo de tags
-            //No es vital validar si se realiza correctamente conteo de los tags
-            actualizarConteoTags($db, $tags);
             
             header('Content-Type: application/json');
             echo json_encode(array(
