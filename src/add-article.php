@@ -1,6 +1,7 @@
 <?php 
     include_once '../config/config.php';
     include_once '../config/conexion.php';
+    include_once '../php/funciones.php';
     $db = db_connect();
 ?>
 <!DOCTYPE html>
@@ -32,11 +33,17 @@
                     </ul>
                 </div>
             </nav>
-            <div class="alert-articles ">
-                <div class="container">
-                    <span>Tienes un artículo pendiente <a href="#">AQUÍ</a>. Favor de terminarlo o cancelarlo <a href="#">AQUÍ</a>.</span>
-                </div>
-            </div>
+            <?php 
+                // FALTAN PERMISOS
+                $verify = findPreviewByUser($db, ID_USER_SESSION);
+                if($verify){
+                    echo ('<div class="alert-articles ">');
+                        echo ('<div class="container">');
+                            echo ('<span>Tienes un artículo pendiente por terminar:&nbsp; <a style="color:white; text-decoration: none;" class="btn" href="'.SERVERURL.'src/edit-article/'.$verify.'/959395">EDITAR</a> &nbsp;ó&nbsp; <button class="btn btn-cancel-preview red lighten-2" data-preview="'.$verify.'">Cancelar</button></span>');
+                        echo ('</div>');
+                    echo ('</div>');
+                }
+            ?>
         </header>
         <br>
         <section class="grid add-article">
@@ -49,7 +56,7 @@
                 <!-- RIGHT SIDE -->
                 <div class="right-side col s12  l12">
                     <div class="row form-wrapper">
-                        <form method="post" class="col s12">
+                        <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>
@@ -99,10 +106,12 @@
                             </div>
                             <!-- END TAGS -->
                             <div class="separator_1"></div>
+                            <?php if(!$verify){ ?>
                             <div class="button-more">
                                 <button id="btnSave" class="waves-effect grey darken-3 btn" type="button" name="button">Guardar</button>
                                 <button id="btnPreview" class="waves-effect grey darken-3 btn" type="button" name="button">Preview</button>
                             </div>
+                            <?php } ?>
                             <div class="separator_0"></div>
                             <input id="path_img" type="hidden" name="path_img" value="">
                         </form>
@@ -183,6 +192,7 @@
                             
                         }
                     });
+                    
                 });
 
                 //Obtener la img seleccionada

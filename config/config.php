@@ -4,4 +4,7 @@
     
     //Admin
     const ADMIN = true;
+    
+    //ID USER SESSION
+    const ID_USER_SESSION = 1;
 ?>

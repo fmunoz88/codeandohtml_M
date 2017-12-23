@@ -164,3 +164,42 @@ var loadMoreCard = function(last_id){
     });    
     
 }
+
+//Eliminar un registro preview
+$(".btn-cancel-preview").click(function(){
+    var id_preview = $(this).attr("data-preview");
+    var url = $("#urlBase").val();
+    
+    MaterialDialog.dialog("¿Desea cancelar el artículo pendiente?", {
+        title:"Confirmación",
+        modalType:"modal", // Can be empty, modal-fixed-footer or bottom-sheet
+        buttons:{
+            // Use by default close and confirm buttons
+            close:{
+                className:"red",
+                text:"Cerrar",
+                callback:function(){}
+            },
+            confirm:{
+                className:"red",
+                text:"Aceptar",
+                modalClose:true,
+                callback:function(){
+                    $.ajax({
+                        type: 'POST',
+                        url: url + 'php/request-ajax.php',
+                        data: {type: '1',"id":id_preview},
+                        success: function(data){
+                            if(data.success){ //page reload
+                                location.reload();
+                            }else{ //show error
+                                Materialize.toast("Ha ocurrido un error al cancelar el artículo", 5000 );
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    });
+    
+});

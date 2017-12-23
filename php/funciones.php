@@ -1,5 +1,5 @@
 <?php 
-    
+
     /**
      * Función para actualizar las vistas de un artículo
      * @param  [objeto]     $db [conexión DB]
@@ -82,5 +82,29 @@
         //Eliminar paréntesis
         $textoLimpio = preg_replace('([()])', '', $texto);	   					
         return $textoLimpio;
+    }
+    
+    function findPreviewByUser($db, $id){
+        $query = $db->query("SELECT id FROM ArticulosPreview WHERE idUsuario = ".$id);
+        $row = mysqli_fetch_assoc($query);
+        // echo "<pre>"; var_dump("aaa",$query); die();
+        if($query->num_rows > 0){
+            return $row['id'];
+        }else{ return false; }
+    }
+    
+    /**
+     * Función para eliminar los registros preview
+     * @param  [type]     $db [description]
+     * @param  [type]     $id [description]
+     * @return [type]         [description]
+     * @author Fabián Muñoz Flores
+     * @date   2017-12-23
+     */
+    function deletePreviewById($db, $id){
+        
+        $query = $db->query("DELETE FROM ArticulosPreview WHERE id = ".$id);
+        
+        if($query){ return true; }else{ return false; }
     }
 ?>

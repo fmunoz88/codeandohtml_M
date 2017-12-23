@@ -5,11 +5,22 @@
     $db = db_connect();
 
     $id = $_GET['id'];
+    $tipo = (int) $_GET['t']; //593859 = Nuevo, 959395 = Preview
+    $articulo = "Articulos";
+    
+    //validar artículos o artículos preview
+    if($tipo === 959395){
+        $articulo = "ArticulosPreview";
+    }
     
     //Obtener el contenido del artículo
-    $query = $db->query("SELECT a.titulo, a.articulo, a.tags, a.idImg FROM Articulos a WHERE id = ".$id);
+    $query = $db->query("SELECT a.titulo, a.articulo, a.tags, a.idImg FROM ".$articulo." a WHERE id = ".$id);
     $row = mysqli_fetch_assoc($query);
     $articulo = $row['articulo'];
+    
+    if($query->num_rows == 0){ //Si no existe el registro a editar, se regresa a la página de crear artículo
+        header("Location: ".SERVERURL."src/add-article.php", true, 301);
+    }
     
     //formatter Tags
     $objectTags = getTagsById($db, $row['tags']);
@@ -61,7 +72,7 @@
                 <!-- RIGHT SIDE -->
                 <div class="right-side col s12  l12">
                     <div class="row form-wrapper">
-                        <form method="post" class="col s12">
+                        <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>

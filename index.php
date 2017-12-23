@@ -76,7 +76,7 @@
                                         echo ('</div>');
                                         echo ('<div class="card-article card-stacked col s9">');
                                             if(ADMIN){
-                                                echo ('<a href="'.SERVERURL.'src/edit-article/'.$v["id"].'" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
+                                                echo ('<a href="'.SERVERURL.'src/edit-article/'.$v["id"].'/593859" class="btn-edit btn btn-floating btn-small red waves-effect"><i class="material-icons">edit</i></a>');
                                                 echo ('<button id="delete" class="btn-delete btn btn-floating btn-small blue waves-effect"><i class="material-icons">delete</i></button>');
                                             }
                                             echo ('<div class="card-content">');
