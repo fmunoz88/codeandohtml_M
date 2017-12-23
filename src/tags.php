@@ -16,6 +16,7 @@
         <meta charset="utf-8">
         <title><?php echo $row['nombre']; ?></title>
         <!--Let browser know website is optimized for mobile-->
+        <link rel="icon" href="<?php echo SERVERURL; ?>img/small/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/font-awesome.min.css">

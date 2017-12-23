@@ -203,3 +203,39 @@ $(".btn-cancel-preview").click(function(){
     });
     
 });
+
+$( ".form-login" ).on( "submit", function( event ) {
+    event.preventDefault();
+
+    var email = $("#email").val();
+    var password = $("#password").val();
+
+    if(email == "" || password == ""){
+      
+      //class error
+      $("#email").addClass('error-form');
+      $("#password").addClass('error-form');
+      
+    }else{
+        //submit login
+        $.ajax({
+            type: 'POST',
+            url: 'php/login-user',
+            data: {"email":email,"password":password},
+            beforeSend: function(){},
+            complete: function(){},
+            success: function(data){
+                if(data.success){
+                    $(".error-pass").hide();
+                    $(location).attr('href','index');
+                    //redirect
+                }else{
+                    $(".error-pass").show();
+                }
+              
+            }
+        });
+      
+    }
+  
+});

@@ -107,4 +107,63 @@
         
         if($query){ return true; }else{ return false; }
     }
+    
+    /**
+     * Función que valida si existe o no un usuario en el login
+     * @param  [type]     $db       [description]
+     * @param  [type]     $email    [description]
+     * @param  [type]     $password [description]
+     * @return [type]               [description]
+     * @author Fabián Muñoz Flores
+     * @date   2017-12-23
+     */
+    function existsUserLogin($db, $email, $password){
+        $query = $db->query("SELECT id FROM Usuarios WHERE email = '".$email."' AND password = '".$password."'");
+        return $query->num_rows > 0 ? true : false;
+    }
+    
+    /**
+     * Función para establecer las sesiones de usuarios al loguear en el sistema
+     * @param  [type]     $db       [description]
+     * @param  [type]     $email    [description]
+     * @param  [type]     $password [description]
+     * @author Fabián Muñoz Flores
+     * @date   2017-12-23
+     */
+    function setSessionID($db, $email, $password){
+        session_start();
+        
+        $query = $db->query("SELECT idSession FROM Usuarios WHERE email = '".$email."' AND password = '".$password."'");
+        $row = mysqli_fetch_assoc($query);
+                        
+        if(!empty($row['idSession']) && $_SESSION['logueo']){ //Si existe un ID de session, se establecerá ese. Y siempre que la session esté activa
+            $_SESSION['ID_USER'] = $row['idSession'];
+            $_SESSION['logueo'] = true;
+            
+            return true;
+
+        }else{ //Si no está abierta la session o no existe un ID de session en el registro, se establecerá una nueva
+
+            //id_session random
+            $id_session = rand(10000, 99999);
+            
+            $query = "UPDATE Usuarios SET idSession = ".$id_session." WHERE email = '".$email."' AND password = '".$password."'";
+            
+            if($db->query($query)){
+                //Establecer sesiones
+                $_SESSION['ID_USER'] = $id_session;
+                $_SESSION['logueo'] = true;
+
+                return true;
+            }else{
+                return false;
+            }
+            
+        }
+        
+    }
+    
+    function generarRandUnique($db){
+        
+    }
 ?>

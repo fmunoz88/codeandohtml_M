@@ -35,11 +35,17 @@ body {
       font-size: 115% !important; }
     body form .row {
       margin-bottom: 0; }
+    body form .error-pass {
+      color: #e53935;
+      display: none; }
   body footer {
     background: #eee !important;
     text-align: center;
     margin: 0; }
     body footer p {
       color: #888; }
+
+.error-form {
+  border-bottom: 1px solid #e53935 !important; }
 
 /*# sourceMappingURL=login.css.map */

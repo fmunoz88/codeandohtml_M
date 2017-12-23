@@ -17,6 +17,7 @@
     <head>
         <meta charset="utf-8">
         <title>Exportar en el gridview en Yii2</title>
+        <link rel="icon" href="<?php echo SERVERURL; ?>img/small/favicon.png">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">

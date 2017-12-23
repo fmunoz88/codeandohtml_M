@@ -1,4 +1,7 @@
 <?php 
+    session_start();
+    if(!$_SESSION['logueo']) { header("Location: login"); }
+
     include_once 'config/config.php';
     include_once 'config/conexion.php';
     include_once 'php/funciones.php';
@@ -9,6 +12,7 @@
     <head>
         <meta charset="utf-8">
         <title>Codeando HTML</title>
+        <link rel="icon" href="<?php echo SERVERURL; ?>img/small/favicon.png">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="<?php echo SERVERURL; ?>css/main.css">
@@ -30,6 +34,9 @@
                         <?php 
                             if(ADMIN){
                                 echo ('<li><a href="src/add-article">Nuevo Artículo</a></li>');
+                            }
+                            if($_SESSION['logueo']){
+                                echo ('<li><a href="'.SERVERURL.'php/login-user?logout=true">Cerrar Sesión</a></li>');
                             }
                         ?>
                     </ul>

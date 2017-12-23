@@ -1,8 +1,13 @@
+<?php
+    session_start();
+    if($_SESSION['logueo']) { header("Location: index"); }
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Codeando HTML</title>
+        <link rel="icon" href="img/small/favicon.png">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="css/main.css">
@@ -27,17 +32,20 @@
                     <h3>Login</h3>
                 </hgroup>
                 <div class="row">
-                    <form class="">
+                    <form class="form-login" method="post">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="email" type="email" class="">
+                                <input id="email" type="email" class="" required>
                                 <label for="email" data-error="incorrecto" data-success="correcto">Email</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="password" type="password" class="">
+                                <input id="password" type="password" class="" required>
                                 <label for="password" data-error="incorrecto" data-success="correcto">Password</label>
                             </div>
-                            <button class="btn waves-effect waves-light blue lighten-1" type="" name="">Entrar
+                            <!-- <div class="error-pass"> -->
+                                <span class="error-pass">El email o la contraseña son incorrectas</span>
+                            <!-- </div> -->
+                            <button class="btn waves-effect waves-light blue lighten-1 btn-login-submit" type="" name="">Entrar
                                 <!-- <i class="material-icons right">send</i> -->
                             </button>
                             <span>
