@@ -1,2 +1,5 @@
-*.sass
 *.map
+
+*.sass
+
+*.sassc
