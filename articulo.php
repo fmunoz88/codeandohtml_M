@@ -97,7 +97,7 @@
                                 $tagRecord = $db->query("SELECT t.nombre, t.id FROM Tags t WHERE t.id = ".$tagID);
                                 $tagRow = mysqli_fetch_assoc($tagRecord);
                                 // echo "<pre>"; var_dump($tagRow['nombre']);
-                                echo ('<a class="hover_1" href="'.SERVERURL.'src/tags.php/'.$tagRow['id'].'">'.$tagRow['nombre'].'</a>');
+                                echo ('<a class="hover_1" href="'.SERVERURL.'src/tags/'.$tagRow['id'].'/'.str_replace(' ','-',$tagRow['nombre']).'">'.$tagRow['nombre'].'</a>');
                                 // echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$tagRow['id'].'">'.$tagRow['nombre'].'</a></div>');
                             }
                         ?>
@@ -144,7 +144,7 @@
                                 $records = $db->query($query);
                                 
                                 foreach ($records as $v) {
-                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$v['id'].'">'.$v['nombre'].'</a></div>');
+                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags/'.$v['id'].'/'.str_replace(' ','-',$v['nombre']).'">'.$v['nombre'].'</a></div>');
                                 }    
                             ?>
                         </div>

@@ -146,7 +146,7 @@
                                 $records = $db->query($query);
                                 
                                 foreach ($records as $v) {
-                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags.php/'.$v['id'].'">'.$v['nombre'].'</a></div>');
+                                    echo ('<div class="chip"><a href="'.SERVERURL.'src/tags/'.$v['id'].'/'.str_replace(' ','-',$v['nombre']).'">'.$v['nombre'].'</a></div>');
                                 }    
                             ?>
                         </div>
