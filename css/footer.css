@@ -20,10 +20,11 @@ footer {
 
 footer.second {
   background-color: #272822;
-  max-height: 55px;
+  max-height: 85px;
   text-align: center;
   margin: 0;
-  color: white; }
+  color: white;
+  font-size: 120%; }
   footer.second p {
     padding: 5px 0 9px 0;
     text-align: center; }

@@ -50,7 +50,7 @@
                 <div class="left-side col s12">
                     <article class="tags">
                         <div class="tag-title">
-                            <h2>ETIQUETA: <?php echo $row['nombre']; ?></h2>
+                            <h2>TAG: <?php echo $row['nombre']; ?></h2>
                         </div>
                         <div class="separator_0"></div>
                         <?php 

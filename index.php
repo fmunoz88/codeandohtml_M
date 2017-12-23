@@ -231,8 +231,9 @@
                 </div>
             </div>
         </section>
+        <div class="separator_2"></div>
         <!-- Footer -->
-        <footer>
+        <!-- <footer>
             <ul class="social">
                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
@@ -240,7 +241,7 @@
                 <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
                 <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
             </ul>
-        </footer>
+        </footer> -->
         <footer class="second">
             <p> Desarrollado por Fabián Muñoz &copy;</p>
         </footer>
